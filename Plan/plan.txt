@@ -1,0 +1,64 @@
+I will use my secondary school as case sample.
+
+A School should be grouped under these roles.
+- Admins 
+        Principals
+
+- Staff
+    Vice Principal
+    Bursar
+    Teachers
+        per Departments
+        per form class
+    Non Academic Staffs
+
+- Students
+
+- Parents
+
+------- Functionalities of the Admin (Principal) -----------
+
+1. Able to assign roles to any of the users.
+2. Create,Read,Update and Delete Staff, students and parents.
+3. Create new Departments and add teachers to them.
+4. See the progress and data of all users.
+5. Able to generate result of either an individual, a whole form(JS1A) or class(JS1).
+6. Assign Students to any class, teacher to any class or Departments.
+7. Create timetable for exam, test or school calender.
+8. Able to upload document for any of the users.
+9. Make edit in the website.
+10. Able to view payments transaction receipts.
+11. View teachers per Departments, form, extra curriculum activties or house.
+12  View students by gender, form, class, subject, house etc.
+
+------- Functionalities of the (Vice Principal) -----------
+
+1. All except assigning roles of a vice Principal.
+
+------- Functionalities of the Bursar -----------
+
+1. Handles all payments.
+
+------- Functionalities of the Teachers -----------
+
+Teachers must be grouped into Departments and extra curriculum activties. 
+While some will be in charge of class or houses.
+
+1. Will be able to have list of students of each classes being taught, their records (both past and present),
+and able to update records for each students per session.
+    - Records are
+        a. test 15% 15% 70%
+        b. attendance which will be grouped into (100% -> A particular remark, 70% - A particular remark)
+
+2. form teachers should be able to access thier students present result (if form teachers changes) and cross check if needed.
+the results should be in form of first, second and third term. Can track each progress and send to their emails if need be.
+
+3. house and extra curriculum teachers should be able to view students from all classes.
+
+4. Update Attendance and give reasons for absence.
+
+------- Functionalities of the Students -----------
+
+1. Pay fees
+2. See Results and list of subject for the session
+3. See teachers who are in charge of their different activties with images.

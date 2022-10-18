@@ -1,0 +1,64 @@
+Users table
+    - Name
+    - Email
+    - password
+    - gender
+
+Teachers table
+    - user_id
+    - dob
+    - LGA
+    - State
+    - Religion
+    - Documents (in jpg to be viewable)
+    - profile pics
+    - formclass ->nullable();
+    - extra curriculum activties
+    - Subject 
+    - house ->nullable()
+    - Hod boolean 1;
+
+Students table
+    - user_id
+    - dob
+    - LGA
+    - State
+    - Religion
+    - Documents (in jpg to be viewable)
+    - profile pics
+    - class
+    - extra curriculum activties
+    - Subject 
+    - house
+    - prefect -> nullable()
+    - extra curriculum prefect nullable()
+    - session
+    
+Fees
+    - user_id
+    - title(school fees, department and others)
+    - amount
+    - session
+
+Confirm Fees
+    - user_id
+    - School fees boolean
+    - house boolean
+    - books boolean
+    - session
+    - paid boolean
+    - confirmed boolean
+
+Departments or subjects
+    - id 
+    - Name
+
+
+Settings
+  - site_name
+  - site_email
+  - site_email
+
+
+
+
