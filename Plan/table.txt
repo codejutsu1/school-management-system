@@ -4,6 +4,22 @@ Users table
     - password
     - gender
 
+house 
+    - id
+    - Name
+
+subject 
+    - id
+    - class
+    - mode -> nullable
+    - extra curriculum
+    - id
+    - name  
+
+department
+    - id
+    - name
+
 Teachers table
     - user_id
     - dob
@@ -14,7 +30,7 @@ Teachers table
     - profile pics
     - formclass ->nullable();
     - extra curriculum activties
-    - Subject 
+    - department
     - house ->nullable()
     - Hod boolean 1;
 
@@ -28,7 +44,6 @@ Students table
     - profile pics
     - class
     - extra curriculum activties
-    - Subject 
     - house
     - prefect -> nullable()
     - extra curriculum prefect nullable()
@@ -57,8 +72,74 @@ Departments or subjects
 Settings
   - site_name
   - site_email
-  - site_email
+  - site_phone
 
 
+Js1/Js2/Js3 Ss1/ss2/ss3
+ - user_id
+ - session
 
+ each subjects
+  - user_id
+  - first ca 
+  - second ca
+  - exam 
+  - session
+  - class
 
+  formclass 
+  - teachers_id
+  - session
+
+subjects_teachers
+  - teachers_id
+  - session
+  - class Js1A Js2B
+
+house 
+    - teachers_id
+    - session
+    - position
+
+Extra curriculum
+    - teachers_id
+    - session
+    - position
+
+subject
+    - id
+    - class
+    - Json or array of json
+
+list_of_subject_per_student
+    - user_id
+    - session
+    - json
+
+list_of_hod_per_session
+    - department_id
+    - session
+    - teachers_id
+
+list_of_teachers_departmemt
+    - teachers_id
+    - session
+    - department_id
+
+result
+    - user_id
+    - session 
+    - class
+    - json(list of subjects with total score)
+    - total
+    - average
+    - position
+
+transaction
+    - user_id
+    - description
+    - status
+    - confirmed 
+    - amount
+    - class
+    - session
