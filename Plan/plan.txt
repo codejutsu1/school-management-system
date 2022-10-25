@@ -11,6 +11,7 @@ A School should be grouped under these roles.
         per Departments
         per form class
     Non Academic Staffs
+    bloggers
 
 - Students
 
@@ -62,3 +63,9 @@ the results should be in form of first, second and third term. Can track each pr
 1. Pay fees
 2. See Results and list of subject for the session
 3. See teachers who are in charge of their different activties with images.
+
+------- Functionalities of the Parents -----------
+
+1. See Child results and list of subjects.
+2. See teachers in charge of their different activties with images of said teacher.
+3. see details of each transactions.

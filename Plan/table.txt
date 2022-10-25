@@ -4,7 +4,7 @@ Users table
     - password
     - gender
 
-house 
+school_houses 
     - id
     - Name
 
@@ -16,11 +16,11 @@ subject
     - id
     - name  
 
-department
+school_departments
     - id
     - name
 
-Teachers table
+Teachers_table
     - user_id
     - dob
     - LGA
@@ -48,14 +48,8 @@ Students table
     - prefect -> nullable()
     - extra curriculum prefect nullable()
     - session
-    
-Fees
-    - user_id
-    - title(school fees, department and others)
-    - amount
-    - session
 
-Confirm Fees
+Confirm_Fees
     - user_id
     - School fees boolean
     - house boolean
@@ -63,11 +57,6 @@ Confirm Fees
     - session
     - paid boolean
     - confirmed boolean
-
-Departments or subjects
-    - id 
-    - Name
-
 
 Settings
   - site_name
@@ -79,7 +68,7 @@ Js1/Js2/Js3 Ss1/ss2/ss3
  - user_id
  - session
 
- each subjects
+ each_students_subjects_records
   - user_id
   - first ca 
   - second ca
@@ -87,16 +76,17 @@ Js1/Js2/Js3 Ss1/ss2/ss3
   - session
   - class
 
-  formclass 
+  form_class 
   - teachers_id
   - session
+  - class
 
 subjects_teachers
   - teachers_id
   - session
   - class Js1A Js2B
 
-house 
+house (house master etc) 
     - teachers_id
     - session
     - position
@@ -135,9 +125,9 @@ result
     - average
     - position
 
-transaction
+fee_transaction
     - user_id
-    - description
+    - title(school fees, department and others)
     - status
     - confirmed 
     - amount
