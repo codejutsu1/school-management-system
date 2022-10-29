@@ -15,18 +15,22 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    @can('view school')
                     <x-nav-link :href="route('students.index')" :active="request()->routeIs('students.index')">
                         {{ __('Students') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    <x-nav-link :href="route('parents.index')" :active="request()->routeIs('parents.index')">
                         {{ __('Parents') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    <x-nav-link :href="route('teachers.index')" :active="request()->routeIs('teachers.index')">
                         {{ __('Teachers') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                    @can('view principals')
+                    <x-nav-link :href="route('principals.index')" :active="request()->routeIs('principals.index')">
                         {{ __('Vice Principal') }}
                     </x-nav-link>
+                    @endcan
+                    @endcan
                 </div>
             </div>
 

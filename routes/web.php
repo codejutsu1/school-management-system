@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Parent\ParentController;
 use App\Http\Controllers\Student\StudentController;
+use App\Http\Controllers\Teacher\TeacherController;
+use App\Http\Controllers\Principal\PrincipalController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,8 +42,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::group(['middleware' => 'auth'], function() {
+Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function() {
     Route::resource('students', StudentController::class);
+    Route::resource('parents', ParentController::class);
+    Route::resource('teachers', TeacherController::class);
+    Route::resource('principals', PrincipalController::class);
 });
 
 require __DIR__.'/auth.php';

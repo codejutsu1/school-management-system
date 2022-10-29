@@ -1,0 +1,4 @@
+Task 2:
+    - Learn the basics of livewire and implement it to this project, then create a table for viewing information for each rolesx.
+    - Reread roles and permission spatie package and watch more youtube video for better understanding
+    - Read gates and policies
