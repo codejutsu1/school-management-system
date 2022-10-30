@@ -11,7 +11,7 @@ class StudentsTable extends Component
     public function render()
     {
         return view('livewire.students-table', [
-            'users' => User::role('student')->get()
+            'users' => User::role('student')->paginate(10)
         ]);
     }
 }
