@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Parent\ParentController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
+use App\Http\Controllers\Student\StudentsController;
 use App\Http\Controllers\Principal\PrincipalController;
 
 /*
@@ -48,5 +49,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function() {
     Route::resource('teachers', TeacherController::class);
     Route::resource('principals', PrincipalController::class);
 });
+
+Route::get('student/student-information', [StudentsController::class, 'viewStudentInfo'])->name('view.student.info');
 
 require __DIR__.'/auth.php';
