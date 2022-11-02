@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Lga;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class LgaSeeder extends Seeder
 {
@@ -12,14 +13,14 @@ class LgaSeeder extends Seeder
      *
      * @return void
      */
-    // https://talltips.novate.co.uk/livewire/dynamic-cascading-dropdown-with-livewire
+    // https=>//talltips.novate.co.uk/livewire/dynamic-cascading-dropdown-with-livewire
     public function run()
     {
-        $lga = array(
-            {
-                "code": "FC",
-                "name": "Abuja",
-                "lgas": [
+        $lgas = [
+            [
+                "code"=> "FC",
+                "name"=> "Abuja",
+                "lgas"=> [
                     "Abuja",
                     "Kwali",
                     "Kuje",
@@ -27,11 +28,11 @@ class LgaSeeder extends Seeder
                     "Bwari",
                     "Abaji"
                 ]
-            },
-            {
-                "code": "AB",
-                "name": "Abia",
-                "lgas": [
+            ],
+            [
+                "code"=> "AB",
+                "name"=> "Abia",
+                "lgas"=> [
                     "Aba North",
                     "Aba South",
                     "Arochukwu",
@@ -53,11 +54,11 @@ class LgaSeeder extends Seeder
                     "Umuahia North",
                     "Umuahia South"
                 ]
-            },
-            {
-                "code": "AD",
-                "name": "Adamawa",
-                "lgas": [
+            ],
+            [
+                "code"=> "AD",
+                "name"=> "Adamawa",
+                "lgas"=> [
                     "Demsa",
                     "Fufore",
                     "Ganye",
@@ -80,11 +81,11 @@ class LgaSeeder extends Seeder
                     "Yola North",
                     "Yola South"
                 ]
-            },
-            {
-                "code": "AK",
-                "name": "AkwaIbom",
-                "lgas": [
+            ],
+            [
+                "code"=> "AK",
+                "name"=> "AkwaIbom",
+                "lgas"=> [
                     "Abak",
                     "Eastern-Obolo",
                     "Eket",
@@ -117,11 +118,11 @@ class LgaSeeder extends Seeder
                     "Uruan",
                     "Uyo"
                 ]
-            },
-            {
-                "code": "AN",
-                "name": "Anambra",
-                "lgas": [
+            ],
+            [
+                "code"=> "AN",
+                "name"=> "Anambra",
+                "lgas"=> [
                     "Aguata",
                     "Anambra East",
                     "Anambra West",
@@ -143,11 +144,11 @@ class LgaSeeder extends Seeder
                     "Orumba-North",
                     "Orumba-South"
                 ]
-            },
-            {
-                "code": "BA",
-                "name": "Bauchi",
-                "lgas": [
+            ],
+            [
+                "code"=> "BA",
+                "name"=> "Bauchi",
+                "lgas"=> [
                     "Alkaleri",
                     "Bauchi",
                     "Bogoro",
@@ -169,11 +170,11 @@ class LgaSeeder extends Seeder
                     "Warji",
                     "Zaki"
                 ]
-            },
-            {
-                "code": "BY",
-                "name": "Bayelsa",
-                "lgas": [
+            ],
+            [
+                "code"=> "BY",
+                "name"=> "Bayelsa",
+                "lgas"=> [
                     "Brass",
                     "Ekeremor",
                     "Kolokuma Opokuma",
@@ -183,11 +184,11 @@ class LgaSeeder extends Seeder
                     "Southern-Ijaw",
                     "Yenagoa"
                 ]
-            },
-            {
-                "code": "BE",
-                "name": "Benue",
-                "lgas": [
+            ],
+            [
+                "code"=> "BE",
+                "name"=> "Benue",
+                "lgas"=> [
                     "Ado",
                     "Agatu",
                     "Apa",
@@ -211,11 +212,11 @@ class LgaSeeder extends Seeder
                     "Ushongo",
                     "Vandeikya"
                 ]
-            },
-            {
-                "code": "BO",
-                "name": "Borno",
-                "lgas": [
+            ],
+            [
+                "code"=> "BO",
+                "name"=> "Borno",
+                "lgas"=> [
                     "Abadam",
                     "Askira-Uba",
                     "Bama",
@@ -244,11 +245,11 @@ class LgaSeeder extends Seeder
                     "Nganzai",
                     "Shani"
                 ]
-            },
-            {
-                "code": "CR",
-                "name": "CrossRiver",
-                "lgas": [
+            ],
+            [
+                "code"=> "CR",
+                "name"=> "CrossRiver",
+                "lgas"=> [
                     "Abi",
                     "Akamkpa",
                     "Akpabuyo",
@@ -268,11 +269,11 @@ class LgaSeeder extends Seeder
                     "Yakurr",
                     "Yala"
                 ]
-            },
-            {
-                "code": "DE",
-                "name": "Delta",
-                "lgas": [
+            ],
+            [
+                "code"=> "DE",
+                "name"=> "Delta",
+                "lgas"=> [
                     "Aniocha North",
                     "Aniocha-North",
                     "Aniocha-South",
@@ -300,11 +301,11 @@ class LgaSeeder extends Seeder
                     "Warri North",
                     "Warri South"
                 ]
-            },
-            {
-                "code": "EB",
-                "name": "Ebonyi",
-                "lgas": [
+            ],
+            [
+                "code"=> "EB",
+                "name"=> "Ebonyi",
+                "lgas"=> [
                     "Abakaliki",
                     "Afikpo-North",
                     "Afikpo South (Edda)",
@@ -318,11 +319,11 @@ class LgaSeeder extends Seeder
                     "Ohaukwu",
                     "Onicha"
                 ]
-            },
-            {
-                "code": "ED",
-                "name": "Edo",
-                "lgas": [
+            ],
+            [
+                "code"=> "ED",
+                "name"=> "Edo",
+                "lgas"=> [
                     "Akoko Edo",
                     "Egor",
                     "Esan-Central",
@@ -342,11 +343,11 @@ class LgaSeeder extends Seeder
                     "Owan-West",
                     "Uhunmwonde"
                 ]
-            },
-            {
-                "code": "EK",
-                "name": "Ekiti",
-                "lgas": [
+            ],
+            [
+                "code"=> "EK",
+                "name"=> "Ekiti",
+                "lgas"=> [
                     "Ado-Ekiti",
                     "Efon",
                     "Ekiti-East",
@@ -364,11 +365,11 @@ class LgaSeeder extends Seeder
                     "Moba",
                     "Oye"
                 ]
-            },
-            {
-                "code": "EN",
-                "name": "Enugu",
-                "lgas": [
+            ],
+            [
+                "code"=> "EN",
+                "name"=> "Enugu",
+                "lgas"=> [
                     "Aninri",
                     "Awgu",
                     "Enugu-East",
@@ -387,11 +388,11 @@ class LgaSeeder extends Seeder
                     "Udi",
                     "Uzo-Uwani"
                 ]
-            },
-            {
-                "code": "GO",
-                "name": "Gombe",
-                "lgas": [
+            ],
+            [
+                "code"=> "GO",
+                "name"=> "Gombe",
+                "lgas"=> [
                     "Akko",
                     "Balanga",
                     "Billiri",
@@ -404,11 +405,11 @@ class LgaSeeder extends Seeder
                     "Shongom",
                     "Yamaltu Deba"
                 ]
-            },
-            {
-                "code": "IM",
-                "name": "Imo",
-                "lgas": [
+            ],
+            [
+                "code"=> "IM",
+                "name"=> "Imo",
+                "lgas"=> [
                     "Aboh-Mbaise",
                     "Ahiazu-Mbaise",
                     "Ehime-Mbano",
@@ -437,11 +438,11 @@ class LgaSeeder extends Seeder
                     "Owerri-North",
                     "Owerri-West"
                 ]
-            },
-            {
-                "code": "JI",
-                "name": "Jigawa",
-                "lgas": [
+            ],
+            [
+                "code"=> "JI",
+                "name"=> "Jigawa",
+                "lgas"=> [
                     "Auyo",
                     "Babura",
                     "Biriniwa",
@@ -469,11 +470,11 @@ class LgaSeeder extends Seeder
                     "Taura",
                     "Yankwashi"
                 ]
-            },
-            {
-                "code": "KD",
-                "name": "Kaduna",
-                "lgas": [
+            ],
+            [
+                "code"=> "KD",
+                "name"=> "Kaduna",
+                "lgas"=> [
                     "Birnin-Gwari",
                     "Chikun",
                     "Giwa",
@@ -498,11 +499,11 @@ class LgaSeeder extends Seeder
                     "Zangon-Kataf",
                     "Zaria"
                 ]
-            },
-            {
-                "code": "KN",
-                "name": "Kano",
-                "lgas": [
+            ],
+            [
+                "code"=> "KN",
+                "name"=> "Kano",
+                "lgas"=> [
                     "Ajingi",
                     "Albasu",
                     "Bagwai",
@@ -548,11 +549,11 @@ class LgaSeeder extends Seeder
                     "Warawa",
                     "Wudil"
                 ]
-            },
-            {
-                "code": "KT",
-                "name": "Katsina",
-                "lgas": [
+            ],
+            [
+                "code"=> "KT",
+                "name"=> "Katsina",
+                "lgas"=> [
                     "Bakori",
                     "Batagarawa",
                     "Batsari",
@@ -588,11 +589,11 @@ class LgaSeeder extends Seeder
                     "Sandamu",
                     "Zango"
                 ]
-            },
-            {
-                "code": "KE",
-                "name": "Kebbi",
-                "lgas": [
+            ],
+            [
+                "code"=> "KE",
+                "name"=> "Kebbi",
+                "lgas"=> [
                     "Aleiro",
                     "Arewa-Dandi",
                     "Argungu",
@@ -615,11 +616,11 @@ class LgaSeeder extends Seeder
                     "Yauri",
                     "Zuru"
                 ]
-            },
-            {
-                "code": "KO",
-                "name": "Kogi",
-                "lgas": [
+            ],
+            [
+                "code"=> "KO",
+                "name"=> "Kogi",
+                "lgas"=> [
                     "Adavi",
                     "Ajaokuta",
                     "Ankpa",
@@ -642,11 +643,11 @@ class LgaSeeder extends Seeder
                     "Yagba-East",
                     "Yagba-West"
                 ]
-            },
-            {
-                "code": "KW",
-                "name": "Kwara",
-                "lgas": [
+            ],
+            [
+                "code"=> "KW",
+                "name"=> "Kwara",
+                "lgas"=> [
                     "Asa",
                     "Baruten",
                     "Edu",
@@ -662,11 +663,11 @@ class LgaSeeder extends Seeder
                     "Oyun",
                     "Pategi"
                 ]
-            },
-            {
-                "code": "LA",
-                "name": "Lagos",
-                "lgas": [
+            ],
+            [
+                "code"=> "LA",
+                "name"=> "Lagos",
+                "lgas"=> [
                     "Agege",
                     "Ajeromi-Ifelodun",
                     "Alimosho",
@@ -689,11 +690,11 @@ class LgaSeeder extends Seeder
                     "Surulere",
                     "Yewa-South"
                 ]
-            },
-            {
-                "code": "NA",
-                "name": "Nassarawa",
-                "lgas": [
+            ],
+            [
+                "code"=> "NA",
+                "name"=> "Nassarawa",
+                "lgas"=> [
                     "Akwanga",
                     "Awe",
                     "Doma",
@@ -708,11 +709,11 @@ class LgaSeeder extends Seeder
                     "Wamba",
                     "Toto"
                 ]
-            },
-            {
-                "code": "NI",
-                "name": "Niger",
-                "lgas": [
+            ],
+            [
+                "code"=> "NI",
+                "name"=> "Niger",
+                "lgas"=> [
                     "Agaie",
                     "Agwara",
                     "Bida",
@@ -739,11 +740,11 @@ class LgaSeeder extends Seeder
                     "Tafa",
                     "Wushishi"
                 ]
-            },
-            {
-                "code": "OG",
-                "name": "Ogun",
-                "lgas": [
+            ],
+            [
+                "code"=> "OG",
+                "name"=> "Ogun",
+                "lgas"=> [
                     "Abeokuta-North",
                     "Abeokuta-South",
                     "Ado-Odo Ota",
@@ -764,11 +765,11 @@ class LgaSeeder extends Seeder
                     "Shagamu",
                     "Yewa North"
                 ]
-            },
-            {
-                "code": "ON",
-                "name": "Ondo",
-                "lgas": [
+            ],
+            [
+                "code"=> "ON",
+                "name"=> "Ondo",
+                "lgas"=> [
                     "Akoko North-East",
                     "Akoko North-West",
                     "Akoko South-West",
@@ -788,11 +789,11 @@ class LgaSeeder extends Seeder
                     "Ose",
                     "Owo"
                 ]
-            },
-            {
-                "code": "OS",
-                "name": "Osun",
-                "lgas": [
+            ],
+            [
+                "code"=> "OS",
+                "name"=> "Osun",
+                "lgas"=> [
                     "Atakumosa West",
                     "Atakumosa East",
                     "Ayedaade",
@@ -823,11 +824,11 @@ class LgaSeeder extends Seeder
                     "Orolu",
                     "Osogbo"
                 ]
-            },
-            {
-                "code": "OY",
-                "name": "Oyo",
-                "lgas": [
+            ],
+            [
+                "code"=> "OY",
+                "name"=> "Oyo",
+                "lgas"=> [
                     "Afijio",
                     "Akinyele",
                     "Atiba",
@@ -863,11 +864,11 @@ class LgaSeeder extends Seeder
                     "Saki-West",
                     "Surulere"
                 ]
-            },
-            {
-                "code": "PL",
-                "name": "Plateau",
-                "lgas": [
+            ],
+            [
+                "code"=> "PL",
+                "name"=> "Plateau",
+                "lgas"=> [
                     "Barkin-Ladi",
                     "Bassa",
                     "Bokkos",
@@ -886,11 +887,11 @@ class LgaSeeder extends Seeder
                     "Shendam",
                     "Wase"
                 ]
-            },
-            {
-                "code": "RI",
-                "name": "Rivers",
-                "lgas": [
+            ],
+            [
+                "code"=> "RI",
+                "name"=> "Rivers",
+                "lgas"=> [
                     "Abua Odual",
                     "Ahoada-East",
                     "Ahoada-West",
@@ -916,11 +917,11 @@ class LgaSeeder extends Seeder
                     "Port-Harcourt",
                     "Tai"
                 ]
-            },
-            {
-                "code": "SO",
-                "name": "Sokoto",
-                "lgas": [
+            ],
+            [
+                "code"=> "SO",
+                "name"=> "Sokoto",
+                "lgas"=> [
                     "Binji",
                     "Bodinga",
                     "Dange-Shuni",
@@ -944,11 +945,11 @@ class LgaSeeder extends Seeder
                     "Wurno",
                     "Yabo"
                 ]
-            },
-            {
-                "code": "TA",
-                "name": "Taraba",
-                "lgas": [
+            ],
+            [
+                "code"=> "TA",
+                "name"=> "Taraba",
+                "lgas"=> [
                     "Ardo-Kola",
                     "Bali",
                     "Donga",
@@ -966,11 +967,11 @@ class LgaSeeder extends Seeder
                     "Yorro",
                     "Zing"
                 ]
-            },
-            {
-                "code": "YO",
-                "name": "Yobe",
-                "lgas": [
+            ],
+            [
+                "code"=> "YO",
+                "name"=> "Yobe",
+                "lgas"=> [
                     "Bade",
                     "Bursari",
                     "Damaturu",
@@ -989,11 +990,11 @@ class LgaSeeder extends Seeder
                     "Yunusari",
                     "Yusufari"
                 ]
-            },
-            {
-                "code": "ZA",
-                "name": "Zamfara",
-                "lgas": [
+            ],
+            [
+                "code"=> "ZA",
+                "name"=> "Zamfara",
+                "lgas"=> [
                     "Anka",
                     "Bakura",
                     "Birnin Magaji/Kiyaw",
@@ -1011,7 +1012,17 @@ class LgaSeeder extends Seeder
                     "Tsafe",
                     "Zurmi"
                 ]
-            }
+            ]
         ] ;
+
+        foreach($lgas as $lga)
+        {
+            Lga::create([
+                'code' => $lga['code'],
+                'name' => $lga['name'],
+                'lgas' => ['name', 'class'],
+                // 'lgas' => $lga['lgas']
+            ]);
+         }
     }
 }

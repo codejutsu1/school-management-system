@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\State;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class StateSeeder extends Seeder
 {
@@ -53,5 +54,10 @@ class StateSeeder extends Seeder
             "Yobe",
             "Zamfara"
         ];
+
+        foreach($states as $state)
+        {
+            State::create(['name' => $state]);
+        }
     }
 }

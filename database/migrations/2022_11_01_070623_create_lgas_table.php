@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('lgas', function (Blueprint $table) {
             $table->id();
+            $table->string('code');
+            $table->string('name');
+            $table->json('lgas');
             $table->timestamps();
         });
     }
