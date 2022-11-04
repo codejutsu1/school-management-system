@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use App\Models\Student;
 use Illuminate\Support\Facades\Hash;
 use LivewireUI\Modal\ModalComponent;
 
@@ -38,6 +39,11 @@ class StudentRegister extends ModalComponent
         ]);
 
         $user->assignRole('student');
+
+        Student::create([
+            'user_id' => $user->id,
+            'class' => $this->class,
+        ]);
 
         session()->flash('message', 'A new Student has been registered successfully.');
 

@@ -9,39 +9,35 @@
                     <form class="space-y-4 md:space-y-6" wire:submit.prevent="submit">
                         <div>
                             <label for="dob" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date of Birth</label>
-                            <input wire:model.debounce.500ms="firstName" type="date" id="dob" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First Name" required autofocus>
-                            @error('firstName') <span class="error">{{ $message }}</span> @enderror
+                            <input wire:model.debounce.500ms="dob" type="date" id="dob" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First Name" required autofocus>
+                            @error('dob') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label for="lga" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">State</label>
                             <select wire:model.lazy="state" id="class" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                                 <option value="" selected="selected" disabled>~ State of Origin ~</option>
-                                <option value="jss1">Alabama</option>
-                                <option value="jss2">Ohio</option>
-                                <option value="jss3">California</option>
-                                <option value="sss1">Texas</option>
-                                <option value="sss2">Florida</option>
-                                <option value="sss3">Las Vegas</option>
+                                @foreach($states as $state)
+                                    <option value="{{ $state->name }}">{{ $state->name }}</option>
+                                @endforeach
                             </select>
-                            @error('middleName') <span class="error">{{ $message }}</span> @enderror
+                            @error('state') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label for="lga" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">LGA</label>
                             <select wire:model.lazy="lga" id="class" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                                 <option value="" selected="selected" disabled>~ LGA ~</option>
-                                <option value="jss1">North Alabama</option>
-                                <option value="jss2">East Ohio</option>
-                                <option value="jss3">West California</option>
-                                <option value="sss1">South Texas</option>
-                                <option value="sss2">North Florida</option>
-                                <option value="sss3">East Las Vegas</option>
+                                @foreach($lgas as $lg)
+                                    @foreach($lg->lgas as $lga)
+                                        <option value="{{ $lga }}">{{ $lga }}</option>
+                                    @endforeach
+                                @endforeach
                             </select>
-                            @error('middleName') <span class="error">{{ $message }}</span> @enderror
+                            @error('lga') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label for="religion" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Religion</label>
-                            <input wire:model.debounce.500ms="lastName" type="text" id="religion" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Last Name" required="">
-                            @error('lastName') <span class="error">{{ $message }}</span> @enderror
+                            <input wire:model.debounce.500ms="religion" type="text" id="religion" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Last Name" required="">
+                            @error('religion') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         
                         <button type="submit" class="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-purple-700 dark:focus:ring-primary-800">Create Student</button>

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Lga;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class LgaSeeder extends Seeder
@@ -1015,14 +1016,14 @@ class LgaSeeder extends Seeder
             ]
         ] ;
 
-        foreach($lgas as $lga)
+        foreach($lgas as $lg)
         {
             Lga::create([
-                'code' => $lga['code'],
-                'name' => $lga['name'],
-                'lgas' => ['name', 'class'],
-                // 'lgas' => $lga['lgas']
+                'name' => $lg['name'],
+                'code' => $lg['code'],
+                'lgas' => $lg['lgas']
             ]);
-         }
+        }
+
     }
 }

@@ -19,7 +19,7 @@ return new class extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->date('dob');
+            $table->date('dob')->nullable();
             $table->string('state')->nullable();
             $table->string('lga')->nullable();
             $table->string('religion')->nullable();

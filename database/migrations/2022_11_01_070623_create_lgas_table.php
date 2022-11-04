@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('code');
             $table->string('name');
-            $table->json('lgas');
+            $table->json('lgas')->nullable();
             $table->timestamps();
         });
     }
