@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Lga;
 use App\Models\State;
+use App\Models\Student;
 use Livewire\Component;
 
 class StudentFill extends Component
@@ -30,11 +31,13 @@ class StudentFill extends Component
     {
         $this->validate();
 
-        dd($this->validate());
+        Student::where('user_id', auth()->user()->id)->update($this->validate());
 
-        Student::where('user_id', auth()->user()->id)->update([
+        auth()->user()->givePermissionTo('fill profile');
 
-        ]);
+        session()->flash('message', 'You have successfully filled in your information.');
+
+        return redirect()->route('dashboard');
     }
 
     public function render()

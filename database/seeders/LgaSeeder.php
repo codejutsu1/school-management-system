@@ -85,7 +85,7 @@ class LgaSeeder extends Seeder
             ],
             [
                 "code"=> "AK",
-                "name"=> "AkwaIbom",
+                "name"=> "Akwa Ibom",
                 "lgas"=> [
                     "Abak",
                     "Eastern-Obolo",
@@ -249,7 +249,7 @@ class LgaSeeder extends Seeder
             ],
             [
                 "code"=> "CR",
-                "name"=> "CrossRiver",
+                "name"=> "Cross River",
                 "lgas"=> [
                     "Abi",
                     "Akamkpa",
