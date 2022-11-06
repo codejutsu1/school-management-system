@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Student;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Student;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class StudentController extends Controller
 {
@@ -45,9 +46,11 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $student)
     {
-        //
+        $student = Student::with('user')->where('user_id', $student->id)->first();
+        
+        return view('students/show', compact('student'));  
     }
 
     /**

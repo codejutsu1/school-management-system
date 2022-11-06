@@ -44,7 +44,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function() {
-    Route::resource('students', StudentController::class);
+    Route::resource('students', StudentController::class)->except('show');
+    Route::get('/students/{student:slug}', [StudentController::class, 'show'])->name('students.show');
     Route::resource('parents', ParentController::class);
     Route::resource('teachers', TeacherController::class);
     Route::resource('principals', PrincipalController::class);

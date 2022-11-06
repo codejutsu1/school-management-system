@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\Student;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
@@ -45,7 +46,8 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'Principal',
             'email' => 'super@admin.com',
-            'password' => Hash::make('mypassword')
+            'password' => Hash::make('mypassword'),
+            'slug' => 'principal'
         ]);
 
         $user->assignRole($super_admin);
@@ -53,7 +55,8 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'Vice Principal',
             'email' => 'admin@school.com',
-            'password' => Hash::make('mypassword')
+            'password' => Hash::make('mypassword'),
+            'slug' => 'vice-principal'
         ]);
 
         $user->assignRole($vice_principals);
@@ -61,7 +64,8 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'Teacher',
             'email' => 'teacher@school.com',
-            'password' => Hash::make('mypassword')
+            'password' => Hash::make('mypassword'),
+            'slug' => 'teacher'
         ]);
 
         $user->assignRole($teachers);
@@ -69,7 +73,8 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'student',
             'email' => 'student@school.com',
-            'password' => Hash::make('mypassword')
+            'password' => Hash::make('mypassword'),
+            'slug' => 'student'
         ]);
 
         $user->assignRole($student);
@@ -77,49 +82,70 @@ class UserSeeder extends Seeder
         $user = User::create([
             'name' => 'parents',
             'email' => 'parents@school.com',
-            'password' => Hash::make('mypassword')
+            'password' => Hash::make('mypassword'),
+            'slug' => ''
         ]);
 
         $user->assignRole($parent);
 
         for ($i=0; $i < 5; $i++) { 
+            $name = $faker->name;
             $user = User::create([
-                'name' => $faker->name,
+                'name' => $name,
                 'email' => $faker->email,
-                'password' => $password
+                'password' => $password,
+                'slug' => slugify($name)
             ]);
 
             $user->assignRole($vice_principals);
         }
 
-        for ($i=0; $i < 20; $i++) { 
+        for ($i=0; $i < 20; $i++) {
+            $name = $faker->name ;
             $user = User::create([
-                'name' => $faker->name,
+                'name' => $name,
                 'email' => $faker->email,
-                'password' => $password
+                'password' => $password,
+                'slug' => slugify($name)
             ]);
 
             $user->assignRole($teachers);
         }
 
-        for ($i=0; $i < 50; $i++) { 
+        for ($i=0; $i < 50; $i++) {
+            $name = $faker->name ;
             $user = User::create([
-                'name' => $faker->name,
+                'name' => $name,
                 'email' => $faker->email,
-                'password' => $password
+                'password' => $password,
+                'slug' => slugify($name)
             ]);
 
             $user->assignRole($student);
         }
 
-        for ($i=0; $i < 30; $i++) { 
+        for ($i=0; $i < 30; $i++) {
+            $name = $faker->name ;
             $user = User::create([
-                'name' => $faker->name,
+                'name' => $name,
                 'email' => $faker->email,
-                'password' => $password
+                'password' => $password,
+                'slug' => slugify($name)
             ]);
 
             $user->assignRole($parent);
+        }
+
+        $classes = ['jss1', 'jss2', 'jss3', 'sss1', 'sss2', 'sss3'];
+
+        for($i=31; $i <= 80; $i++)
+        {
+            shuffle($classes);
+
+            Student::create([
+                'user_id' => $i,
+                'class' => $classes[0]
+            ]);
         }
     }
 }

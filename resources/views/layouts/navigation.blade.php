@@ -31,11 +31,9 @@
                     </x-nav-link>
                     @endcan
                     @endcan
-                    @cannot('fill profile')
                     <x-nav-link :href="route('view.student.info')" :active="request()->routeIs('view.student.info')">
                         {{ __('Student Info') }}
                     </x-nav-link>
-                    @endcan
                 </div>
             </div>
 

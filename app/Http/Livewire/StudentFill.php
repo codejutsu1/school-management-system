@@ -33,8 +33,6 @@ class StudentFill extends Component
 
         Student::where('user_id', auth()->user()->id)->update($this->validate());
 
-        auth()->user()->givePermissionTo('fill profile');
-
         session()->flash('message', 'You have successfully filled in your information.');
 
         return redirect()->route('dashboard');

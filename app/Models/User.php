@@ -23,6 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'slug',
     ];
 
     /**
@@ -49,5 +50,15 @@ class User extends Authenticatable
         return Attribute::make(
             get: fn ($value) => ucfirst($value),
         );
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function student()
+    {
+    return $this->hasOne(Student::class);
     }
 }
