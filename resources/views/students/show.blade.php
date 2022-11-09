@@ -22,9 +22,16 @@
                     <div>
                         <p class="text-lg font-semibold">Permissions</p>
                         <ul>
-                            <li>
-                                <p>View Profile</p>
+                            @foreach($permissions as $permission)
+                            <li class="flex gap-4">
+                                <p>{{ $permission->name  }}</p>
+                                <livewire:toggle-button
+                                    :model="$permission"
+                                    field="name"
+                                    key="{{ $permission->key }}"
+                                />
                             </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>

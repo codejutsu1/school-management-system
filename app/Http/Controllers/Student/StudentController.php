@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Student;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Permission;
 
 class StudentController extends Controller
 {
@@ -49,8 +50,10 @@ class StudentController extends Controller
     public function show(User $student)
     {
         $student = Student::with('user')->where('user_id', $student->id)->first();
+
+        $permissions = Permission::all();
         
-        return view('students/show', compact('student'));  
+        return view('students/show', compact('student', 'permissions'));  
     }
 
     /**
