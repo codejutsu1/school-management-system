@@ -24,10 +24,10 @@
                         <ul>
                             @foreach($permissions as $permission)
                             <li class="flex gap-4">
-                                <p>{{ $permission->name  }}</p>
+                                <p>{{ $permission->name }}</p>
                                 <livewire:toggle-button
-                                    :model="$permission"
-                                    field="name"
+                                    :student="$student->user->id"
+                                    :field="$permission->name"
                                     key="{{ $permission->key }}"
                                 />
                             </li>
