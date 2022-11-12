@@ -34,4 +34,9 @@ class Student extends Model
             get: fn ($value) => strtoupper($value)
         );
     }
+
+    public function parents()
+    {
+        return this->hasOne(Parents::class);
+    }
 }

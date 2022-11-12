@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-use App\Models\Student;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
@@ -134,18 +133,6 @@ class UserSeeder extends Seeder
             ]);
 
             $user->assignRole($parent);
-        }
-
-        $classes = ['jss1', 'jss2', 'jss3', 'sss1', 'sss2', 'sss3'];
-
-        for($i=31; $i <= 80; $i++)
-        {
-            shuffle($classes);
-
-            Student::create([
-                'user_id' => $i,
-                'class' => $classes[0]
-            ]);
         }
     }
 }

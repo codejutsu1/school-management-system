@@ -22,7 +22,7 @@
             @foreach($users as $parent)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                 <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    {{ $parent->name }}
+                    <a href="{{ route('parents.show', $parent->slug) }}">{{ $parent->name }}</a>
                 </th>
                 <td class="py-4 px-6">
                     {{ $parent->email }}

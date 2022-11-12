@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Parent;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\Parents;
+use App\Http\Controllers\Controller;
+use Spatie\Permission\Models\Permission;
 
 class ParentController extends Controller
 {
@@ -44,9 +47,13 @@ class ParentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $parent)
     {
-        //
+        $parent = Parents::with('user', 'student')->where('user_id', $parent->id)->first();
+        
+        $permissions = Permission::all();
+
+        return view('parents/show', compact('parent', 'permissions'));
     }
 
     /**

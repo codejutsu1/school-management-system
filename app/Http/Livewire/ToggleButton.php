@@ -9,12 +9,12 @@ use Illuminate\Database\Eloquent\Model;
 class ToggleButton extends Component
 {
     public bool $isActive;
-    public int $student;
+    public int $user;
     public string $field;
 
     public function mount()
     {
-        $user = User::where('id', $this->student)->first();
+        $user = User::where('id', $this->user)->first();
         $this->isActive = (bool) $user->hasPermissionTo($this->field);
     }
 
@@ -25,7 +25,7 @@ class ToggleButton extends Component
 
     public function updating($field, $value)
     {
-        $user = User::where('id', $this->student)->first();
+        $user = User::where('id', $this->user)->first();
 
         if($value) $user->givePermissionTo($this->field); else $user->revokePermissionTo($this->field);
     }
