@@ -34,6 +34,11 @@
                     <x-nav-link :href="route('view.student.info')" :active="request()->routeIs('view.student.info')">
                         {{ __('Student Info') }}
                     </x-nav-link>
+                    @can('departments')
+                        <x-nav-link :href="route('create.departments')" :active="request()->routeIs('create.departments')">
+                            {{ __('Create Department') }}
+                        </x-nav-link>
+                    @endcan
                 </div>
             </div>
 

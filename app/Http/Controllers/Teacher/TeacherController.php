@@ -44,9 +44,13 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $teacher)
     {
-        //
+        $teacher = Teacher::with('user')->where('user_id', $teacher->id)->first();
+
+        $permissions = Permission::all();
+        
+        return view('teachers/show', compact('teacher', 'permissions'));  
     }
 
     /**
