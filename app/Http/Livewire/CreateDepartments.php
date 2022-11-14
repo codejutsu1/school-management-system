@@ -4,11 +4,14 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Department;
+use Livewire\WithPagination;
 
 class CreateDepartments extends Component
 {
+    use WithPagination;
+    
     public $name;
-    public $departmemts;
+    public $departments;
 
     public function mount()
     {
@@ -39,8 +42,8 @@ class CreateDepartments extends Component
 
     public function render()
     {
-        $departments =  collect($this->departments)->paginate(5);
+        $allDepartments =  collect($this->departments)->paginate(10);
 
-        return view('livewire.create-departments', compact('departments'));
+        return view('livewire.create-departments', ['allDepartments' => $allDepartments]);
     }
 }

@@ -12,6 +12,9 @@
                     @if($users->class)
                         <p>Class : {{ $users->class }}</p>
                     @endif
+                    @if($users->department)
+                        <p>Subject: {{ $users->department }}</p>
+                    @endif
 
                     <div>
                         <p class="text-lg font-semibold">Permissions</p>

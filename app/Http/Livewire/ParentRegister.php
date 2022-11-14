@@ -3,8 +3,9 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use LivewireUI\Modal\ModalComponent;
 
-class ParentRegister extends Component
+class ParentRegister extends ModalComponent
 {
     public $firstName = '';
     public $middleName = '';

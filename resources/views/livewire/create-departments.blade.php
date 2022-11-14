@@ -27,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($departments as $department)
+                @foreach($allDepartments as $department)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <td class="py-4 px-6">
                         {{ $loop->iteration }}
@@ -42,5 +42,9 @@
                 @endforeach
             </tbody>
         </table>
+
+        <div>
+            {{ $allDepartments->withQueryString()->links() }}
+        </div>
     </div>
 </div>

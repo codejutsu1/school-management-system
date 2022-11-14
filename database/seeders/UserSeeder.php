@@ -32,10 +32,12 @@ class UserSeeder extends Seeder
 
         Permission::create(['name' => 'view school']);
         Permission::create(['name' => 'view principals']);
+        Permission::create(['name' => 'departments']);
         
         $super_admin->givePermissionTo([
             'view school',
-            'view principals'
+            'view principals',
+            'departments'
         ]);
 
         $vice_principals->givePermissionTo([

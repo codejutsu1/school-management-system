@@ -1,8 +1,13 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-100 leading-tight">
-            {{ __('Teachers') }}
-        </h2>
+        <div class="flex justify-between items-center">
+            <h2 class="font-semibold text-xl text-gray-100 leading-tight">
+                {{ __('Teachers') }}
+            </h2>
+            <div>
+                <button type="button" onclick="Livewire.emit('openModal', 'teacher-register')" class="bg-purple-600 px-4 text-white rounded-md py-2">Create new teacher</button>
+            </div>
+        </div>
     </x-slot>
 
     <div class="py-12">
