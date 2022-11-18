@@ -32,7 +32,7 @@ class StudentRegister extends ModalComponent
     {
         $this->validate();
 
-        $name = $this->lastName . ' ' . $this->firstName . ' ' . $this->middleName;
+        $name = fullname($this->lastName, $this->firstName, $this->middleName);
 
         $user = User::create([
             'name' => $name,

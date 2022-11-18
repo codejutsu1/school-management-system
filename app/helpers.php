@@ -26,3 +26,10 @@ function slugify($text, string $divider = '-')
 
     return $text;
 }
+
+function fullname($lastName, $firstName, $middleName)
+{
+    $name = $lastName . ' ' . $firstName . ' ' . $middleName;
+    
+    return $name;
+}

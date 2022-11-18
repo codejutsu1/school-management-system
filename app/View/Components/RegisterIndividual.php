@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Department;
 use Illuminate\View\Component;
 
 class RegisterIndividual extends Component
@@ -14,7 +15,7 @@ class RegisterIndividual extends Component
      *
      * @return void
      */
-    public function __construct($individual, $value, $departments)
+    public function __construct($individual, $value = null, $departments = null)
     {
         $this->individual = $individual;
         $this->value = $value;

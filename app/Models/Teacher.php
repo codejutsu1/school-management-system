@@ -10,4 +10,9 @@ class Teacher extends Model
 {
     use HasFactory;
     use BelongsToUser;
+
+    protected $fillable = [
+        'user_id',
+        'department'
+    ];
 }
