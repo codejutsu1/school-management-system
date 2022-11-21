@@ -4,23 +4,13 @@
             <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
                 <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
                     <h1 class="text-xl text-center font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                        Create a new {{ $individual }}
+                        Edit <b>{{ $name }}'s</b> Details
                     </h1>
                     <form class="space-y-4 md:space-y-6" wire:submit.prevent="submit">
                         <div>
-                            <label for="firstName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First Name</label>
-                            <input wire:model.debounce.500ms="firstName" type="text" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First Name" required autofocus>
-                            @error('firstName') <span class="error">{{ $message }}</span> @enderror
-                        </div>
-                        <div>
-                            <label for="middleName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Middle Name</label>
-                            <input wire:model.debounce.500ms="middleName" type="text" id="middleName" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Last Name" required="">
-                            @error('middleName') <span class="error">{{ $message }}</span> @enderror
-                        </div>
-                        <div>
-                            <label for="lastName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last Name (Surname)</label>
-                            <input wire:model.debounce.500ms="lastName" type="text" id="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Last Name" required="">
-                            @error('lastName') <span class="error">{{ $message }}</span> @enderror
+                            <label for="fullName" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Full Name</label>
+                            <input wire:model.debounce.500ms="fullName" type="text" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First Name" required autofocus>
+                            @error('fullName') <span class="error">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{ $individual }}'s Email</label>

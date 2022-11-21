@@ -1,3 +1,3 @@
 <div>
-    <x-edit-individual individual="Student" value="student" />
+    <x-edit-individual individual="Student" value="student" :name="$name" />
 </div>

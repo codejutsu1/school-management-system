@@ -37,7 +37,7 @@
                 <td>
                 <div class="flex items-center space-x-4 text-sm">
                         <button
-                            wire:click='$emit("openModal", "edit-student", {{ json_encode(["user" => $student->id]) }})'
+                            wire:click='$emit("openModal", "edit-student", {{ json_encode(["student" => $student->slug]) }})'
                             class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Edit"
                         >
