@@ -12,18 +12,23 @@ class EditStudent extends ModalComponent
     public $fullName;
     public $email;
     public $class;
+    public $student_id;
 
-    protected $rules = ([
-        'fullName' => ['required','string'],
-        'email' => ['required','email','unique:users,email,' . auth()->user()->id],
-        'class' => ['required', 'string']
-    ]);
+    protected function rules()
+    {
+        return [
+            'fullName' => 'required|string',
+            'email' => ['required', 'string', 'unique:users,email,' . $this->student_id],
+            'class' => 'required|string'
+        ];
+    }
 
     public function mount(User $student)
     {
         $this->student = $student;
         $this->fullName = $student->name;
         $this->email = $student->email;
+        $this->student_id = $student->id;
 
         $class = Student::where('user_id', $student->id)->value('class');
 
@@ -48,7 +53,7 @@ class EditStudent extends ModalComponent
             'class' => $this->class,
         ]);
 
-        session()->flash('message', 'Student, ' . $this->fullname .' has been updated successfully.');
+        session()->flash('message', 'Student, ' . $this->fullName .' has been updated successfully.');
 
         return redirect()->route('students.index');
     }
