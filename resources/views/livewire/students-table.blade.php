@@ -44,7 +44,7 @@
                             Edit
                         </button>
                         <button
-                            wire:click="deleteConfirm({{$student->id}})"
+                            wire:click="deleteConfirm({{ $student->id }})"
                             class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-red-700 focus:outline-none focus:shadow-outline-gray"
                             aria-label="Delete"
                         >
