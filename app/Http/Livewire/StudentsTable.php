@@ -17,4 +17,13 @@ class StudentsTable extends Component
             'users' => User::role('student')->paginate(10)
         ]);
     }
+
+    public function deleteConfirm($id)
+    {
+        $student = User::findOrFail($id);
+        $student->delete();
+
+        return redirect()->route('students.index')
+                    ->with('message', 'Student, ' . $student->name .' has been deleted successfully.');
+    }
 }
