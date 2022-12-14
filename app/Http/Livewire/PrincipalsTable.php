@@ -13,4 +13,13 @@ class PrincipalsTable extends Component
             'users' => User::role('vice principal')->get()
         ]);
     }
+
+    public function deletePrincipal($id)
+    {
+        $principal = User::findOrFail($id);
+        $principal->delete();
+
+        return redirect()->route('principals.index')
+                    ->with('message', 'Vice Principal, ' . $principal->name .' has been deleted successfully.');
+    }
 }

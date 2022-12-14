@@ -13,4 +13,13 @@ class TeachersTable extends Component
             'users' => User::role('teacher')->get()
         ]);
     }
+
+    public function deleteTeacher($id)
+    {
+        $teacher = User::findOrFail($id);
+        $teacher->delete();
+
+        return redirect()->route('teachers.index')
+                    ->with('message', 'Teacher, ' . $teacher->name .' has been deleted successfully.');
+    }
 }
