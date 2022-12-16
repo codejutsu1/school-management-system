@@ -15,22 +15,43 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    @can('view school')
-                    <x-nav-link :href="route('students.index')" :active="request()->routeIs('students.index')">
-                        {{ __('Students') }}
+                    <x-nav-link>
+                        <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-gray-400 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center " type="button">
+                            School
+                            <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
+                                @can('view school')
+                                <li>
+                                    <x-drop-link :href="route('students.index')" :active="request()->routeIs('students.index')">
+                                        {{ __('Students') }}
+                                    </x-drop-link>
+                                </li>
+                                <li>
+                                    <x-drop-link :href="route('parents.index')" :active="request()->routeIs('parents.index')">
+                                        {{ __('Parents') }}
+                                    </x-drop-link>
+                                </li>
+                                <li>
+                                    <x-drop-link :href="route('teachers.index')" :active="request()->routeIs('teachers.index')">
+                                        {{ __('Teachers') }}
+                                    </x-drop-link>
+                                </li>
+                                @can('view principals')
+                                <li>
+                                    <x-drop-link :href="route('principals.index')" :active="request()->routeIs('principals.index')">
+                                        {{ __('Vice Principal') }}
+                                    </x-drop-link>
+                                </li>
+                                @endcan
+                                @endcan
+                            </ul>
+                        </div>
                     </x-nav-link>
-                    <x-nav-link :href="route('parents.index')" :active="request()->routeIs('parents.index')">
-                        {{ __('Parents') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('teachers.index')" :active="request()->routeIs('teachers.index')">
-                        {{ __('Teachers') }}
-                    </x-nav-link>
-                    @can('view principals')
-                    <x-nav-link :href="route('principals.index')" :active="request()->routeIs('principals.index')">
-                        {{ __('Vice Principal') }}
-                    </x-nav-link>
-                    @endcan
-                    @endcan
                     <x-nav-link :href="route('view.student.info')" :active="request()->routeIs('view.student.info')">
                         {{ __('Student Info') }}
                     </x-nav-link>
