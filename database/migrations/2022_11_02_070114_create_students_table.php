@@ -31,6 +31,7 @@ return new class extends Migration
             $table->string('prefect')->nullable();
             $table->string('extraActivitiesPrefect')->nullable();
             $table->string('session')->nullable();
+            $table->boolean('complete')->default(0);
             $table->timestamps();
         });
     }

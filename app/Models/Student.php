@@ -25,7 +25,8 @@ class Student extends Model
         'house',
         'prefect',
         'extraActivitesPrefect',
-        'session'
+        'session',
+        'complete'
     ];
 
     public function class(): Attribute
