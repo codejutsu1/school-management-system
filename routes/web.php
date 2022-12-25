@@ -6,6 +6,7 @@ use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
 use App\Http\Controllers\Student\StudentsController;
 use App\Http\Controllers\Teacher\TeachersController;
+use App\Http\Controllers\SuperAdmin\CreateController;
 use App\Http\Controllers\Principal\PrincipalController;
 use App\Http\Controllers\SuperAdmin\DepartmentController;
 
@@ -52,6 +53,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function() {
     Route::resource('teachers', TeacherController::class);
     Route::resource('principals', PrincipalController::class);
     Route::get('create-departments', [DepartmentController::class, 'createDepartments'])->name('create.departments');
+    Route::get('create-extra-curriculum-activity', [CreateController::class, 'extraCurriculum'])->name('extra.curriculum');
+    Route::get('create-house', [CreateController::class, 'createHouse'])->name('create.house');
 });
 
 Route::get('student/student-information', [StudentsController::class, 'viewStudentInfo'])->name('view.student.info')->middleware('student');
