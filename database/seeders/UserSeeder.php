@@ -33,6 +33,8 @@ class UserSeeder extends Seeder
         Permission::create(['name' => 'view school']);
         Permission::create(['name' => 'view principals']);
         Permission::create(['name' => 'departments']);
+        Permission::create(['name' => 'student information']);
+        Permission::create(['name' => 'teacher information']);
         
         $super_admin->givePermissionTo([
             'view school',
@@ -42,6 +44,14 @@ class UserSeeder extends Seeder
 
         $vice_principals->givePermissionTo([
             'view school'
+        ]);
+
+        $student->givePermissionTo([
+            'student information'
+        ]);
+
+        $teachers->givePermissionTo([
+            'teacher information'
         ]);
 
         $user = User::create([

@@ -15,6 +15,8 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+                    
+                    @can('view school')
                     <x-nav-link>
                         <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-gray-400 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center " type="button">
                             School
@@ -25,7 +27,6 @@
                         <!-- Dropdown menu -->
                         <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
                             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefault">
-                                @can('view school')
                                 <li>
                                     <x-drop-link :href="route('students.index')" :active="request()->routeIs('students.index')">
                                         {{ __('Students') }}
@@ -48,13 +49,22 @@
                                     </x-drop-link>
                                 </li>
                                 @endcan
-                                @endcan
                             </ul>
                         </div>
                     </x-nav-link>
+                    @endcan
+                    @can('student information')
                     <x-nav-link :href="route('view.student.info')" :active="request()->routeIs('view.student.info')">
                         {{ __('Student Info') }}
                     </x-nav-link>
+                    @endcan
+
+                    @can('teacher information')
+                    <x-nav-link :href="route('view.teacher.info')" :active="request()->routeIs('view.student.info')">
+                        {{ __('Teacher Info') }}
+                    </x-nav-link>
+                    @endcan
+
                     @can('departments')
                         <x-nav-link :href="route('create.departments')" :active="request()->routeIs('create.departments')">
                             {{ __('Create Department') }}

@@ -1,0 +1,1 @@
+<x-fill-individual :states="$states" :lgas="$lgas" />

@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use App\Models\Lga;
 use App\Models\State;
-use App\Models\Student;
+use App\Models\Teacher;
 use Livewire\Component;
 
-class StudentFill extends Component
+class TeacherFill extends Component
 {
     public $state = '';
     public $lgas = [];
@@ -31,7 +31,7 @@ class StudentFill extends Component
     {
         $this->validate();
 
-        Student::where('user_id', auth()->user()->id)->update([
+        Teacher::where('user_id', auth()->user()->id)->update([
             'state' => $this->state,
             'lga' => $this->lga,
             'dob' => $this->dob,
@@ -44,13 +44,14 @@ class StudentFill extends Component
         return redirect()->route('dashboard');
     }
 
+
     public function render()
     {
         if(!empty($this->state)) {
             $this->lgas = Lga::where('name', $this->state)->get();
         }
 
-        return view('livewire.student-fill')
-            ->withStates(State::orderBy('name')->get());
+        return view('livewire.teacher-fill')
+                    ->withStates(State::orderBy('name')->get());
     }
 }
