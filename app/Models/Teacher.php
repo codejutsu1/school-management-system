@@ -13,7 +13,18 @@ class Teacher extends Model
 
     protected $fillable = [
         'user_id',
+        'dob',
+        'state',
+        'lga',
+        'religion',
+        'documents',
+        'profilePics',
+        'formClass',
+        'extraCurriculumActivities',
         'department',
+        'house',
+        'hod',
+        'session',
         'complete'
     ];
 }

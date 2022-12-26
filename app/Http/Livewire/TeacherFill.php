@@ -6,6 +6,7 @@ use App\Models\Lga;
 use App\Models\State;
 use App\Models\Teacher;
 use Livewire\Component;
+use App\Models\Curriculum;
 
 class TeacherFill extends Component
 {
@@ -14,12 +15,14 @@ class TeacherFill extends Component
     public $lga = '';
     public $dob;
     public $religion = '';
+    public $curricula = '';
 
     protected $rules = [
         'state' => 'required',
         'lga' => 'required',
         'dob' => 'required',
-        'religion' => 'required'
+        'religion' => 'required',
+        'curricula' => 'required'
     ];
 
     public function updated($propertyName)
@@ -36,6 +39,7 @@ class TeacherFill extends Component
             'lga' => $this->lga,
             'dob' => $this->dob,
             'religion' => $this->religion,
+            'extraCurriculumActivities' => $this->curricula,
             'complete' => 1
         ]);
 
@@ -52,6 +56,7 @@ class TeacherFill extends Component
         }
 
         return view('livewire.teacher-fill')
-                    ->withStates(State::orderBy('name')->get());
+                    ->withStates(State::orderBy('name')->get())
+                    ->withCurriculum(Curriculum::pluck('name'));
     }
 }

@@ -39,6 +39,16 @@
                             <input wire:model.debounce.500ms="religion" type="text" id="religion" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Religion" required="">
                             @error('religion') <span class="error">{{ $message }}</span> @enderror
                         </div>            
+                        <div>
+                            <label for="curriculum" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Extra Curriculum Activity</label>
+                            <select wire:model.lazy="curricula" id="curriculum" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                <option value="" selected="selected" disabled>~ Choose one ~</option>
+                                @foreach($curriculum as $curricula)
+                                    <option value="{{ $curricula }}">{{ $curricula }}</option>
+                                @endforeach
+                            </select>
+                            @error('curriculum') <span class="error">{{ $message }}</span> @enderror
+                        </div>            
                         <button type="submit" class="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-purple-700 dark:focus:ring-primary-800">Update Info</button>
                     </form>
                 </div>

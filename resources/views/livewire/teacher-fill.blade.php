@@ -1,1 +1,1 @@
-<x-fill-individual :states="$states" :lgas="$lgas" />
+<x-fill-individual :states="$states" :lgas="$lgas" :curriculum="$curriculum" />

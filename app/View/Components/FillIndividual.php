@@ -8,15 +8,17 @@ class FillIndividual extends Component
 {
     public $states;
     public $lgas;
+    public $curriculum;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($states, $lgas)
+    public function __construct($states, $lgas, $curriculum)
     {
         $this->states = $states;
         $this->lgas = $lgas;
+        $this->curriculum = $curriculum;
     }
 
     /**
