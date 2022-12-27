@@ -5,10 +5,12 @@ use App\Http\Controllers\Parent\ParentController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
 use App\Http\Controllers\Student\StudentsController;
+use App\Http\Controllers\SuperAdmin\RolesController;
 use App\Http\Controllers\Teacher\TeachersController;
 use App\Http\Controllers\SuperAdmin\CreateController;
 use App\Http\Controllers\Principal\PrincipalController;
 use App\Http\Controllers\SuperAdmin\DepartmentController;
+use App\Http\Controllers\SuperAdmin\PermissionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +48,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function() {
+Route::group(['middleware' => ['auth', 'role:super admin'], 'prefix' => 'dashboard'], function() {
     Route::resource('students', StudentController::class)->except('show');
     Route::get('/students/{student:slug}', [StudentController::class, 'show'])->name('students.show');
     Route::resource('parents', ParentController::class);
@@ -55,8 +57,14 @@ Route::group(['middleware' => 'auth', 'prefix' => 'dashboard'], function() {
     Route::get('create-departments', [DepartmentController::class, 'createDepartments'])->name('create.departments');
     Route::get('create-extra-curriculum-activity', [CreateController::class, 'extraCurriculum'])->name('extra.curriculum');
     Route::get('create-house', [CreateController::class, 'createHouse'])->name('create.house');
+
+    Route::get('roles', [RolesController::class, 'index'])->name('roles');
+    Route::get('permissions', [PermissionsController::class, 'index'])->name('permissions');
+});
+
+Route::group(['middleware' => ['auth', 'role:teacher'], 'prefix' => 'dashboard'], function(){
+    Route::get('teacher/teacher-information', [TeachersController::class, 'viewTeacherInfo'])->name('view.teacher.info')->middleware('teacher');
 });
 
 Route::get('student/student-information', [StudentsController::class, 'viewStudentInfo'])->name('view.student.info')->middleware('student');
-Route::get('teacher/teacher-information', [TeachersController::class, 'viewTeacherInfo'])->name('view.teacher.info')->middleware('teacher');
 require __DIR__.'/auth.php';

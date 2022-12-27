@@ -3,23 +3,23 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Models\Curriculum;
 use Livewire\WithPagination;
+use Spatie\Permission\Models\Role;
 
-class ExtraCurriculum extends Component
+class Roles extends Component
 {
     use WithPagination;
-    
+
     public $name;
-    public $curriculum;
+    public $roles;
 
     public function mount()
     {
-        $this->curriculum = Curriculum::all();
+        $this->roles = Role::all();
     }
 
     protected $rules = [
-        'name' => 'required|string|unique:curriculum',
+        'name' => 'required|string',
     ];
 
     public function updated($propertyName)
@@ -31,19 +31,20 @@ class ExtraCurriculum extends Component
     {
         $this->validate();
 
-        $curriculum = Curriculum::create([
+        $role = Role::create([
             'name' => $this->name,
         ]);
 
         $this->name = '';
 
-        $this->curriculum->push($curriculum);
+        $this->roles->push($role);
     }
 
+    
     public function render()
     {
-        $allCurriculum =  collect($this->curriculum)->paginate(10);
+        $roles = collect($this->roles)->paginate(10);
 
-        return view('livewire.extra-curriculum', ['allCurriculum' => $allCurriculum]);
+        return view('livewire.roles', ['roles' => $roles]);
     }
 }

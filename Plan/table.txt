@@ -1,10 +1,10 @@
-Users table
+Users table (done)
     - Name
     - Email
     - password
     - gender
 
-school_houses 
+school_houses (done)
     - id
     - Name
 
@@ -16,11 +16,11 @@ subject
     - id
     - name  
 
-school_departments
+school_departments (done)
     - id
     - name
 
-Teachers_table
+Teachers_table (done)
     - user_id
     - dob
     - LGA
@@ -34,7 +34,7 @@ Teachers_table
     - house ->nullable()
     - Hod boolean 1;
 
-Students table
+Students table (done)
     - user_id
     - dob
     - LGA
