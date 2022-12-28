@@ -43,8 +43,10 @@ class Permissions extends Component
     public function render()
     {
 
-        $permissions = collect($this->permissions)->paginate(10);
+        $allPermissions = collect($this->permissions)->paginate(10);
 
-        return view('livewire.permissions', ['permissions' => $permissions]);
+        // dd($permissions);
+
+        return view('livewire.permissions', ['allPermissions' => $allPermissions]);
     }
 }

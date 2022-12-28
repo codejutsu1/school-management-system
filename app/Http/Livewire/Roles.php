@@ -43,8 +43,8 @@ class Roles extends Component
     
     public function render()
     {
-        $roles = collect($this->roles)->paginate(10);
+        $allRoles = collect($this->roles)->paginate(10);
 
-        return view('livewire.roles', ['roles' => $roles]);
+        return view('livewire.roles', ['allRoles' => $allRoles]);
     }
 }
