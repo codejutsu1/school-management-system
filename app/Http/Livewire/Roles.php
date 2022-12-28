@@ -39,12 +39,19 @@ class Roles extends Component
 
         $this->roles->push($role);
     }
-
     
     public function render()
     {
         $allRoles = collect($this->roles)->paginate(10);
 
         return view('livewire.roles', ['allRoles' => $allRoles]);
+    }
+
+    public function deleteConfirm(Role $role)
+    {
+        $role->delete();
+
+        return redirect()->route('roles')
+                    ->with('message', 'Role, ' . $role->name .' has been deleted successfully.');
     }
 }
