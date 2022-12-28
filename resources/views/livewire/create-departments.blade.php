@@ -1,1 +1,1 @@
-<x-create created="Department" :allCreated="$allDepartments"  />
+<x-create created="Department" :allCreated="$allDepartments" editable="department"  />

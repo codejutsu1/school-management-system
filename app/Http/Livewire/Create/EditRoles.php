@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Create;
 
 use Spatie\Permission\Models\Role;
 use LivewireUI\Modal\ModalComponent;
@@ -12,7 +12,7 @@ class EditRoles extends ModalComponent
     public $role;
 
     protected $rules = [
-        'name' => 'required|string',
+        'name' => 'required|string|unique:roles',
     ];
 
     public function mount(Role $role)
@@ -39,6 +39,6 @@ class EditRoles extends ModalComponent
 
     public function render()
     {
-        return view('livewire.edit-roles');
+        return view('livewire.create.edit-roles');
     }
 }

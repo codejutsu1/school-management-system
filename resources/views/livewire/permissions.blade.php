@@ -1,1 +1,1 @@
-<x-create created="Permission" :allCreated="$allPermissions"  />
+<x-create created="Permission" :allCreated="$allPermissions" editable="permissions" />

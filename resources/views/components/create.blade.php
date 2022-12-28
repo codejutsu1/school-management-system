@@ -44,13 +44,14 @@
                     <td>
                         <div class="flex items-center space-x-4 text-sm">
                             <button
-                                wire:click='$emit("openModal", "edit-{{ $editable }}", {{ json_encode([$create->id]) }})'
+                                wire:click='$emit("openModal", "create.edit-{{ $editable }}", {{ json_encode([$create->id]) }})'
                                 class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
                                 aria-label="Edit"
                             >
                                 Edit
                             </button>
                             <button
+                                onclick="return confirm('Are you sure you want to delete?')"
                                 wire:click="deleteConfirm({{ $create->id }})"
                                 class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-red-700 focus:outline-none focus:shadow-outline-gray"
                                 aria-label="Delete"

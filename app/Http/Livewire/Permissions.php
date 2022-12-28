@@ -42,11 +42,16 @@ class Permissions extends Component
 
     public function render()
     {
-
         $allPermissions = collect($this->permissions)->paginate(10);
 
-        // dd($permissions);
-
         return view('livewire.permissions', ['allPermissions' => $allPermissions]);
+    }
+
+    public function deleteConfirm(Permission $permission)
+    {
+        $permission->delete();
+
+        return redirect()->route('permissions')
+                        ->with('message', 'Permission, ' . $permission->name .' has been deleted successfully.');
     }
 }

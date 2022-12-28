@@ -1,1 +1,1 @@
-<x-create created="Extra Curriculum Activity" :allCreated="$allCurriculum"  />
+<x-create created="Extra Curriculum Activity" :allCreated="$allCurriculum" editable="curriculum" />

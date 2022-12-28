@@ -46,4 +46,12 @@ class ExtraCurriculum extends Component
 
         return view('livewire.extra-curriculum', ['allCurriculum' => $allCurriculum]);
     }
+
+    public function deleteConfirm(Curriculum $curriculum)
+    {
+        $curriculum->delete();
+
+        return redirect()->route('extra.curriculum')
+                        ->with('message', 'Curriculum, ' . $curriculum->name .' has been deleted successfully.');
+    }
 }

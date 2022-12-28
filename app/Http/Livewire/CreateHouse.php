@@ -42,8 +42,16 @@ class CreateHouse extends Component
 
     public function render()
     {
-    $allHouses =  collect($this->houses)->paginate(10);
+        $allHouses =  collect($this->houses)->paginate(10);
 
         return view('livewire.create-house', ['allHouses' => $allHouses]);
+    }
+
+    public function deleteConfirm(House $house)
+    {
+        $house->delete();
+
+        return redirect()->route('create.house')
+                        ->with('message', 'House, ' . $house->name .' has been deleted successfully.');
     }
 }

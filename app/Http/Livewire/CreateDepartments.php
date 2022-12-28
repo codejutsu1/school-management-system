@@ -46,4 +46,12 @@ class CreateDepartments extends Component
 
         return view('livewire.create-departments', ['allDepartments' => $allDepartments]);
     }
+
+    public function deleteConfirm(Department $department)
+    {
+        $department->delete();
+
+        return redirect()->route('create.departments')
+                        ->with('message', 'Department, ' . $department->name .' has been deleted successfully.');
+    }
 }
