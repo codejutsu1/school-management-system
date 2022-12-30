@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Teacher;
 use App\Models\User;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
 use Spatie\Permission\Models\Permission;
 
@@ -52,8 +53,10 @@ class TeacherController extends Controller
         $teacher = Teacher::with('user')->where('user_id', $teacher->id)->first();
 
         $permissions = Permission::all();
+
+        $roles = Role::all();
         
-        return view('teachers/show', compact('teacher', 'permissions'));  
+        return view('teachers/show', compact('teacher', 'permissions', 'roles'));  
     }
 
     /**

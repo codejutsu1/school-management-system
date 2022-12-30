@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Parent\ParentController;
+use App\Http\Controllers\Teacher\ClassController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
 use App\Http\Controllers\Student\StudentsController;
@@ -64,6 +65,10 @@ Route::group(['middleware' => ['auth', 'role:super admin'], 'prefix' => 'dashboa
 
 Route::group(['middleware' => ['auth', 'role:teacher'], 'prefix' => 'dashboard'], function(){
     Route::get('teacher/teacher-information', [TeachersController::class, 'viewTeacherInfo'])->name('view.teacher.info')->middleware('teacher');
+    
+    Route::controller(ClassController::class)->group(function() {
+        Route::get('jss1a', 'jss1a')->name('jss1a')->middleware('role:form teacher');
+    });
 });
 
 Route::get('student/student-information', [StudentsController::class, 'viewStudentInfo'])->name('view.student.info')->middleware('student');

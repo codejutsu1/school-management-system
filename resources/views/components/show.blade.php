@@ -15,21 +15,38 @@
                     @if($users->department)
                         <p>Subject: {{ $users->department }}</p>
                     @endif
-
-                    <div>
-                        <p class="text-lg font-semibold">Permissions</p>
-                        <ul>
-                            @foreach($permissions as $permission)
-                            <li class="flex gap-4">
-                                <p>{{ $permission->name }}</p>
-                                <livewire:toggle-button
+                    
+                    <div class="flex space-around">
+                        <div>
+                            <p class="text-lg font-semibold">Permissions</p>
+                            <ul>
+                                @foreach($permissions as $permission)
+                                <li class="flex gap-4">
+                                    <p>{{ $permission->name }}</p>
+                                    <livewire:toggle-button
+                                        :user="$users->user->id"
+                                        :field="$permission->name"
+                                        key="{{ $permission->key }}"
+                                    />
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-lg font-semibold">Roles</p>
+                            <ul>
+                                @foreach($roles as $role)
+                                <li class="flex gap-4">
+                                    <p>{{ $role->name }}</p>
+                                    <livewire:role-button
                                     :user="$users->user->id"
-                                    :field="$permission->name"
-                                    key="{{ $permission->key }}"
-                                />
-                            </li>
-                            @endforeach
-                        </ul>
+                                    :field="$role->name"
+                                    key="{{ $role->key }}"
+                                    />
+                                </li>
+                                @endforeach
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -119,6 +119,11 @@
                             </div>
                         </x-nav-link>
                     @endcan
+                    @role('form teacher')
+                        <x-nav-link :href="route('jss1a')" :active="request()->routeIs('jss1a')">
+                            {{ __('Form Class') }}
+                        </x-nav-link>
+                    @endrole
                 </div>
             </div>
 

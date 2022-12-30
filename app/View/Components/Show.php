@@ -8,15 +8,17 @@ class Show extends Component
 {
     public $permissions;
     public $users;
+    public $roles;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($users, $permissions)
+    public function __construct($users, $permissions, $roles)
     {
         $this->permissions = $permissions;
         $this->users = $users;
+        $this->roles = $roles;
     }
 
     /**
