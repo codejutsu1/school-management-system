@@ -1,13 +1,20 @@
 <div>
     <div class="flex justify-between mb-3">
-        <p><b>{{ strtoupper($name) }}</b> for <b>2020/2021</b> Session</p>
+        <p><b>{{ strtoupper($name) }}</b> for <b>2020/2021</b> Session.</p>
         <button
+            wire:click="addAllStudents({{ $students }})"
             class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
             aria-label="Edit"
         >
             Add all Students
         </button>
     </div>
+
+    @if($remain)
+    <div class="mb-3">
+        <span class="text-red-500">NB: You have <b>{{ $number }} students</b> needed to be added to your class.</span>
+    </div>
+    @endif
 
     <div class="overflow-x-auto relative">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -45,12 +52,22 @@
                     </td>
                     <td>
                         <div class="flex items-center space-x-4 text-sm">
+                            @if(!in_array($student->id, $added_students))
                             <button
+                                wire:click="addSingleStudent({{ $student->id }})"
                                 class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
                                 aria-label="Edit"
                             >
                                 Add Student
                             </button>
+                            @else
+                            <button
+                                class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
+                                aria-label="Edit"
+                            >
+                                Promote
+                            </button>
+                            @endif
                         </div>
                     </td>
                 </tr>

@@ -72,4 +72,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Teacher::class);
     }
+
+    public function Jss1()
+    {
+        return $this->hasOne(Jss1::class);
+    }
 }

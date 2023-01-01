@@ -124,6 +124,12 @@
                             {{ __('Form Class') }}
                         </x-nav-link>
                     @endrole
+
+                    @role('teacher')
+                        <x-nav-link :href="route('jss1a')">
+                            {{ __('Subject') }}
+                        </x-nav-link>
+                    @endrole
                 </div>
             </div>
 
