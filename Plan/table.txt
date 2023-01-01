@@ -62,6 +62,7 @@ Settings
   - site_name
   - site_email
   - site_phone
+  - session
 
 
 Js1/Js2/Js3 Ss1/ss2/ss3
@@ -84,7 +85,7 @@ Js1/Js2/Js3 Ss1/ss2/ss3
 subjects_teachers
   - teachers_id
   - session
-  - class Js1A Js2B
+  - class (Js1A Js2B)
 
 house (house master etc) 
     - teachers_id

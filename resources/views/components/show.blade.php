@@ -38,14 +38,47 @@
                                 @foreach($roles as $role)
                                 <li class="flex gap-4">
                                     <p>{{ $role->name }}</p>
-                                    <livewire:role-button
-                                    :user="$users->user->id"
-                                    :field="$role->name"
-                                    key="{{ $role->key }}"
-                                    />
+                                    <livewire:role-button :user="$users->user->id" :field="$role->name" key="{{ $role->key }}" />
                                 </li>
                                 @endforeach
                             </ul>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <div>
+                            <h1>JSS1</h1>
+                            <div>
+                                <input type="checkbox" name="jss1a" value="jss1a">
+                                <label for="jss1a">JSS1A</label>
+                            </div>
+                            <div>
+                                <input type="checkbox"  name="classes" value="jss1b">
+                                <label for="jss1b">JSS1B</label>
+                            </div>
+                            <div>
+                                <input type="checkbox"  name="classes" value="jss1c">
+                                <label for="jss1c">JSS1C</label>
+                            </div>
+                            <div>
+                                <input type="checkbox"  name="classes" value="jss1d">
+                                <label for="jss1d">JSS1D</label>
+                            </div>
+                        </div>
+                        <div>
+                            <h1>JSS2</h1>
+                        </div>
+                        <div>
+                            <h1>JSS3</h1>
+                        </div>
+                        <div>
+                            <h1>SSS1</h1>
+                        </div>
+                        <div>
+                            <h1>SSS2</h1>
+                        </div>
+                        <div>
+                            <h1>SSS3</h1>
                         </div>
                     </div>
                 </div>
