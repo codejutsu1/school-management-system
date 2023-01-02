@@ -97,6 +97,10 @@ Extra curriculum
     - session
     - position
 
+student_classes
+    - id
+    - name
+
 subject
     - id
     - class

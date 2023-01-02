@@ -7,5 +7,5 @@
        </div>
     </x-slot>
 
-    <x-show :$permissions :users="$teacher" :$roles />
+    <x-show :$permissions :users="$teacher" :$roles :$classes :teacher="true" />
 </x-app-layout>

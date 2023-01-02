@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('sss1s', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->string('session');
             $table->timestamps();
         });
     }

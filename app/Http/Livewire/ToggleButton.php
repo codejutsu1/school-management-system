@@ -11,11 +11,12 @@ class ToggleButton extends Component
     public bool $isActive;
     public int $user;
     public string $field;
+    public $individual;
 
     public function mount()
     {
-        $user = User::where('id', $this->user)->first();
-        $this->isActive = (bool) $user->hasPermissionTo($this->field);
+        $this->individual = User::where('id', $this->user)->first();
+        $this->isActive = (bool) $this->individual->hasPermissionTo($this->field);
     }
 
     public function render()
@@ -25,8 +26,6 @@ class ToggleButton extends Component
 
     public function updating($field, $value)
     {
-        $user = User::where('id', $this->user)->first();
-
-        if($value) $user->givePermissionTo($this->field); else $user->revokePermissionTo($this->field);
+        if($value) $this->individual->givePermissionTo($this->field); else $this->individual->revokePermissionTo($this->field);
     }
 }
