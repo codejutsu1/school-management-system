@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class SubjectTeacher extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'classes'
+    ];
+
+    protected $casts = [
+        'classes' => 'array',
+    ];
+
+    
 }

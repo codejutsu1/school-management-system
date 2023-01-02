@@ -53,7 +53,7 @@
                                 @foreach($classes as $class)
                                     <li class="flex space-y-4 items-center gap-4">
                                         <p>{{ $class->name }}</p>
-                                        <livewire:toggle.toggle-classes />
+                                        <livewire:toggle.toggle-classes :user_id="$users->user->id" :field="$class->name" key="{{ $class->key }}" />
                                     </li>
                                 @endforeach
                             </ul>
