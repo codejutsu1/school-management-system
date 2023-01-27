@@ -65,24 +65,24 @@ Settings
   - session
 
 
-Js1/Js2/Js3 Ss1/ss2/ss3
+Js1/Js2/Js3 Ss1/ss2/ss3  (done)
  - user_id
  - session
 
- each_students_subjects_records
+ each_students_subjects_records(English, mathematics, etc) (done)
   - user_id
+  - class
   - first ca 
   - second ca
   - exam 
   - session
-  - class
 
   form_class 
   - teachers_id
   - session
   - class
 
-subjects_teachers
+subjects_teachers(done)
   - teachers_id
   - session
   - class (Js1A Js2B)
@@ -92,21 +92,12 @@ house (house master etc)
     - session
     - position
 
-Extra curriculum
+Extra curriculum 
     - teachers_id
     - session
     - position
 
-student_classes
-    - id
-    - name
-
-subject
-    - id
-    - class
-    - Json or array of json
-
-list_of_subject_per_student
+list_of_subject_per_student  (not needed cause each student will do the same subjects) *
     - user_id
     - session
     - json
