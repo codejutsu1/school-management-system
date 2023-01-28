@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Models\User;
+use App\Models\SubjectClass;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -20,6 +21,7 @@ class TeachersController extends Controller
 
     public function showListTeachers(User $teacher)
     {
-        return view('teacher/showListTeacher', compact('teacher'));
+        $classes = SubjectClass::pluck('name');
+        return view('teacher/showListTeacher', compact('teacher', 'classes'));
     }
 }
