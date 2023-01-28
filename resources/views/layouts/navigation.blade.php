@@ -124,12 +124,11 @@
                             {{ __('Form Class') }}
                         </x-nav-link>
                     @endrole
-
-                    @role('teacher')
-                        <x-nav-link :href="route('jss1a')">
-                            {{ __('Subject') }}
+                    @can('list teachers')
+                        <x-nav-link :href="route('list.teachers')">
+                            {{ __('Teachers') }}
                         </x-nav-link>
-                    @endrole
+                    @endcan
                 </div>
             </div>
 

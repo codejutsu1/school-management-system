@@ -64,7 +64,11 @@ Route::group(['middleware' => ['auth', 'role:super admin'], 'prefix' => 'dashboa
 });
 
 Route::group(['middleware' => ['auth', 'role:teacher'], 'prefix' => 'dashboard'], function(){
-    Route::get('teacher/teacher-information', [TeachersController::class, 'viewTeacherInfo'])->name('view.teacher.info')->middleware('teacher');
+    Route::controller(TeachersController::class)->group(function() {
+        Route::get('teacher/teacher-information',  'viewTeacherInfo')->name('view.teacher.info')->middleware('teacher');
+        Route::get('teacher/list-teachers',  'listTeachers')->name('list.teachers');
+        Route::get('teachers/{teacher:slug}', 'showListTeachers')->name('show.list.teacher');
+    });
     
     Route::controller(ClassController::class)->group(function() {
         Route::get('jss1a', 'jss1a')->name('jss1a')->middleware('role:form teacher');
