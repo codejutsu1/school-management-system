@@ -11,9 +11,10 @@
                 <div class="p-6 bg-gray-800 text-gray-200 space-y-4"> 
                     <ul class="flex flex-col space-y-5">
                         @foreach($classes as $class)
-                            <li>
-                                {{  strtoupper($class) }}
-                            </li>
+                            <li class="flex space-y-4 items-center gap-4">
+                                        <p>{{ strtoupper($class) }}</p>
+                                        <livewire:toggle.toggle-classes :user_id="$teacher->id" :field="strtoupper($class)" key="{{ $class->key}}" />
+                                    </li>
                         @endforeach
                     </div>      
                 </div>

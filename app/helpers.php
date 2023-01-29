@@ -33,3 +33,10 @@ function fullname($lastName, $firstName, $middleName)
     
     return $name;
 }
+
+function remove($str)  
+{
+    $res = str_replace(array('"', '[', ']'), ' ',  $str);
+
+    return $res;
+}

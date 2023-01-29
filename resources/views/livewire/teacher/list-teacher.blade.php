@@ -13,7 +13,7 @@
                         Subject
                     </th>
                     <th scope="col" class="py-3 px-6">
-                        Class
+                        Classes
                     </th>
                 </tr>
             </thead>
@@ -21,15 +21,18 @@
                 @foreach($teachers as $teacher)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                        <a href="{{ route('show.list.teacher', $teacher->user->slug) }}">
-                            {{ $teacher->user->name }}
+                        <a href="{{ route('show.list.teacher', $teacher->slug) }}">
+                            {{ $teacher->name }}
                         </a>
                     </th>
                     <td class="py-4 px-6">
-                        {{ $teacher->user->email }}
+                        {{ $teacher->email }}
                     </td>
                     <td class="py-4 px-6">
                         {{ $teacher->department }}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{ remove($teacher->classes) }}
                     </td>
                 </tr>
                 @endforeach

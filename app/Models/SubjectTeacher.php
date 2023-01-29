@@ -11,7 +11,8 @@ class SubjectTeacher extends Model
 
     protected $fillable = [
         'user_id',
-        'classes'
+        'classes',
+        'subject'
     ];
 
     protected $casts = [
