@@ -36,7 +36,25 @@
                     </td>
                 </tr>
                 @endforeach
+
+                @foreach($teachers_without as $teacher)
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 pt-4">
+                    <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <a href="{{ route('show.list.teacher', $teacher->user->slug) }}">
+                            {{ $teacher->user->name }}
+                        </a>
+                    </th>
+                    <td class="py-4 px-6">
+                        {{ $teacher->user->email }}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{ $teacher->department }}
+                    </td>
+                    <td class="py-4 px-6">
+                        No Class Yet
+                    </td>
+                </tr>
+                @endforeach
             </tbody>
-        </table>
     </div>
 </div>
