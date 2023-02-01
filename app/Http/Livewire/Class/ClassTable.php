@@ -20,12 +20,12 @@ class ClassTable extends Component
     {
         $this->classes = ['jss1a', 'jss1b', 'jss1c', 'jss1d'];
 
-        $this->name = Auth()->user()->getDirectPermissions()->value('name');
+        $this->name = Auth()->user()->getDirectPermissions()->last();
 
         if(Auth()->user()->hasAnyPermission($this->classes)){
             $this->students = User::join('students', 'users.id', '=', 'students.user_id')
                                         ->select(['users.id','users.name', 'users.email', 'students.house', 'students.extraCurriculumActivities','students.class'])
-                                        ->where('students.class', '=', $this->name)
+                                        ->where('students.class', '=', $this->name->name)
                                         ->orderBy('name')
                                         ->get();
         }
@@ -43,7 +43,7 @@ class ClassTable extends Component
     {
         Jss1::firstOrCreate([
             'user_id' => $id,
-            'session' => '2020/2021', //Please create a table for the session
+            'session' => '2020/2021', //Please create a table(column) for the session
         ]);
 
         session()->flash('message', 'Student successfully added to your class');

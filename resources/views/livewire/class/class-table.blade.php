@@ -1,6 +1,6 @@
 <div>
     <div class="flex justify-between mb-3">
-        <p><b>{{ strtoupper($name) }}</b> for <b>2020/2021</b> Session.</p>
+        <p><b>{{ strtoupper($name->name) }}</b> for <b>2020/2021</b> Session.</p>
         <button
             wire:click="addAllStudents({{ $students }})"
             class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
