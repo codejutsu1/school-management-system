@@ -129,6 +129,11 @@
                             {{ __('Teachers') }}
                         </x-nav-link>
                     @endcan
+                    @role('teacher')
+                        <x-nav-link :href="route('show.students')">
+                            {{ __('Student') }}
+                        </x-nav-link>
+                    @endrole
                 </div>
             </div>
 

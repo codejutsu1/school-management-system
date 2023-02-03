@@ -24,4 +24,9 @@ class TeachersController extends Controller
         $classes = SubjectClass::pluck('name');
         return view('teacher/showListTeacher', compact('teacher', 'classes'));
     }
+
+    public function showStudents()
+    {
+        return view('teacher/showStudents');
+    }
 }

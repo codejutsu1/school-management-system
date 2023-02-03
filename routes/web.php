@@ -68,6 +68,7 @@ Route::group(['middleware' => ['auth', 'role:teacher'], 'prefix' => 'dashboard']
         Route::get('teacher/teacher-information',  'viewTeacherInfo')->name('view.teacher.info')->middleware('teacher');
         Route::get('teacher/list-teachers',  'listTeachers')->name('list.teachers');
         Route::get('teachers/{teacher:slug}', 'showListTeachers')->name('show.list.teacher');
+        Route::get('teachers/students/show', 'showStudents')->name('show.students');
     });
     
     Route::controller(ClassController::class)->group(function() {
