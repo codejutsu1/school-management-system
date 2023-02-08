@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('physics', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')
+                ->constrained()
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->string('class');
+            $table->string('first_ca');
+            $table->string('second_ca');
+            $table->string('exam');
+            $table->string('session');
+            $table->string('teachers_name');
             $table->timestamps();
         });
     }

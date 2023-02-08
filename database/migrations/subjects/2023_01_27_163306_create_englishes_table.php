@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('second_ca');
             $table->string('exam');
             $table->string('session');
+            $table->string('teachers_name');
             $table->timestamps();
         });
     }

@@ -19,6 +19,7 @@ return new class extends Migration
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->string('class');
             $table->string('session');
             $table->timestamps();
         });

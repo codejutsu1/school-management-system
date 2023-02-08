@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('biology', function (Blueprint $table) {
+        Schema::create('geography', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')
                 ->constrained()
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('biology');
+        Schema::dropIfExists('geography');
     }
 };

@@ -2,18 +2,17 @@
 
 namespace App\Http\Livewire\Teacher;
 
+use App\Models\Student;
 use Livewire\Component;
 
 class ShowStudents extends Component
 {
     public $classes;
+    public $session;
 
-    public function updating($field, $value)
+    public function mount()
     {
-        if($value == NULL)
-        {
-            dd('true');
-        }
+        $this->students = Jss1::with('user')->all();
     }
 
     public function render()
