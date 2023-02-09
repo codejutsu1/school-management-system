@@ -77,4 +77,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Jss1::class);
     }
+
+    public function geography()
+    {
+        return $this->hasOne(Geography::class);
+    }
 }

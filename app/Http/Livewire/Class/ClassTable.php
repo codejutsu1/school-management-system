@@ -6,6 +6,8 @@ use App\Models\Jss1;
 use App\Models\User;
 use App\Models\Student;
 use Livewire\Component;
+use App\Models\Geography;
+use App\Models\Department;
 
 class ClassTable extends Component
 {
@@ -15,6 +17,7 @@ class ClassTable extends Component
     public $added_students;
     public $remain;
     public $number;
+    public $subjects =  [];
 
     public function mount()
     {
@@ -37,6 +40,8 @@ class ClassTable extends Component
             $this->remain  = true;
             $this->number = count($this->students) - count($this->added_students);
         }
+
+        $this->subjects = Department::pluck('name')->toArray();
     }
 
     public function addSingleStudent($id)
@@ -45,6 +50,12 @@ class ClassTable extends Component
             'user_id' => $id,
             'session' => '2020/2021', //Please create a table(column) for the session
         ]);
+
+        // for ($i=0; $i < 5; $i++) { 
+        //     "App\Models\\".$this->subject[0]::create({
+        //         'user_id' => $id
+        //     });   
+        // }
 
         session()->flash('message', 'Student successfully added to your class');
 
@@ -58,6 +69,12 @@ class ClassTable extends Component
             Jss1::firstOrCreate([
                 'user_id' => $student['id'],
                 'session' => '2020/2021'
+            ]);
+
+            Geography::create([
+                'user_id' => $student['id'],
+                'class' => $this->name->name,
+                'session' => '2020/2021', 
             ]);
         }
 
