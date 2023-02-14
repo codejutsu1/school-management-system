@@ -9,7 +9,7 @@
                     <form class="space-y-4 md:space-y-6" wire:submit.prevent="submit">
                         <div>
                             <label for="first_ca" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First CA</label>
-                            <input wire:model.debounce.500ms="first_ca" type="text" id="first_ca" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First CA Score"autofocus>
+                            <input wire:model.debounce.500ms="first_ca" type="text" id="first_ca" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First CA Score" autofocus>
                         </div>
                         <div>
                             <label for="second_ca" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Second CA</label>
