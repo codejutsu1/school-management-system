@@ -40,6 +40,15 @@
                     <th scope="col" class="py-3 px-6">
                         Total
                     </th>
+                    <th scope="col" class="py-3 px-6">
+                        Grade
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Position
+                    </th>
+                    <th scope="col" class="py-3 px-6">
+                        Action
+                    </th>
                 </tr>
             </thead>
             @if($students)
@@ -54,6 +63,32 @@
                             {{ $student->user->name }}
                         </a>
                     </th>
+                    <td class="py-4 px-6">
+                        {{ $student->first_ca }}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{ $student->second_ca }}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{ $student->exam }}
+                    </td>
+                    <td class="py-4 px-6 text-gray-300 font-semibold">
+                        {{ $student->first_ca + $student->second_ca + $student->exam }}   
+                    </td>
+                    <td class="py-4 px-6">
+                        A
+                    </td>
+                    <td class="py-4 px-6">
+                        2nd
+                    </td>
+                    <td class="py-4 px-6 text-gray-300 font-semibold">
+                        <button
+                            wire:click='$emit("openModal", "edit-scores", {{ json_encode(["user" => $student->user->slug, "session"=> $session, "classes"  => $classes, "subject" =>  $subject]) }})'
+                            class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
+                        >
+                            Edit
+                        </button>     
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

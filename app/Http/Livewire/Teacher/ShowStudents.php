@@ -13,26 +13,26 @@ class ShowStudents extends Component
     public $session;
     public $students;
     public $className;
+    public $total;
 
     public function mount()
     {
         $this->subject = Teacher::where('user_id', auth()->user()->id)->value('department');
+
+        $this->className = "\\App\\Models\\".$this->subject; 
     }
 
     public function render()
     {
         if($this->classes && $this->session) 
         {
-            $this->className = "\\App\\Models\\".$this->subject; 
-
             $this->students = $this->className::where('class', $this->classes)
                                     ->where('session', $this->session)
                                     ->with('user', function($query){
-                                        $query->select(['id','name']);
+                                        $query->select(['id','name', 'slug']);
                                     })
-                                    ->get();                          
+                                    ->get();      
         }
-
         return view('livewire.teacher.show-students');
     }
 }
