@@ -76,7 +76,7 @@
                         {{ $student->first_ca + $student->second_ca + $student->exam }}   
                     </td>
                     <td class="py-4 px-6">
-                        A
+                        {{ grade($student->first_ca + $student->second_ca + $student->exam)  }}
                     </td>
                     <td class="py-4 px-6">
                         2nd

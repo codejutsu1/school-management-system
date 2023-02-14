@@ -40,3 +40,36 @@ function remove($str)
 
     return $res;
 }
+
+function grade($num)
+{
+    if($num >= 0 && $num <=  35)
+    {
+        $grade = "F";
+    }
+    elseif($num >= 36 && $num <=  45)
+    {
+        $grade = "E";
+    }
+    elseif($num >= 46 && $num <=  55)
+    {
+        $grade = "D";
+    }
+    elseif($num >= 56 && $num <=  59)
+    {
+        $grade = "C";
+    }
+    else if($num >= 60 && $num <=  69)
+    {
+        $grade = "B";
+    }
+    else if($num >= 70 && $num <=  100)
+    {
+        $grade = "A";
+    }
+    else{
+        $grade = "NULL";
+    }
+
+    return $grade;
+}

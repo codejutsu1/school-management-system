@@ -17,6 +17,12 @@ class EditScores extends ModalComponent
     public $subject;
     public $student;
 
+    protected $rules = [
+        'first_ca' => 'numeric|min:0|max:15',
+        'second_ca' => 'numeric|min:0|max:15',
+        'exam' => 'numeric|min:0|max:70'
+    ];
+
     public function mount(User $user)
     {
         $this->user = $user;
@@ -28,15 +34,22 @@ class EditScores extends ModalComponent
                                                     ->where('session', $this->session)
                                                     ->first();
 
-        $this->first_ca = $this->student->first_ca;
+        $this->first_ca = $this->student->first_ca ?? '';
 
-        $this->second_ca = $this->student->second_ca;
+        $this->second_ca = $this->student->second_ca ?? '';
 
-        $this->exam = $this->student->exam;
+        $this->exam = $this->student->exam ?? '';
+    }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
     }
 
     public function submit()
     {
+        $this->validate();
+        
         $this->className::where('user_id', $this->user->id)->update([
             'first_ca' => $this->first_ca,
             'second_ca' => $this->second_ca,

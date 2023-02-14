@@ -9,15 +9,18 @@
                     <form class="space-y-4 md:space-y-6" wire:submit.prevent="submit">
                         <div>
                             <label for="first_ca" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First CA</label>
-                            <input wire:model.debounce.500ms="first_ca" type="text" id="first_ca" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First CA Score" autofocus>
+                            <input wire:model.debounce.500ms="first_ca" name="first_ca" type="text" id="first_ca" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First CA Score" autofocus>
+                            @error('first_ca') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label for="second_ca" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Second CA</label>
                             <input wire:model.debounce.500ms="second_ca" type="text" name="second_ca" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Second CA Score">
+                            @error('second_ca') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
                         </div>
                         <div>
                             <label for="exam" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Exam</label>
                             <input wire:model.debounce.500ms="exam" type="text" name="exam" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Exam Score">
+                            @error('exam') <span class="text-red-700 font-bold">{{ $message }}</span> @enderror
                         </div>
                         <button type="submit" class="w-full text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:outline-none focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-purple-700 dark:focus:ring-primary-800">Update {{ $user->name }}'s scores</button>
                     </form>
