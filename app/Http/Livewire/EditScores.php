@@ -16,6 +16,7 @@ class EditScores extends ModalComponent
     public $session;
     public $subject;
     public $student;
+    public $total;
 
     protected $rules = [
         'first_ca' => 'numeric|min:0|max:15',

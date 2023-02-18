@@ -69,3 +69,15 @@ the results should be in form of first, second and third term. Can track each pr
 1. See Child results and list of subjects.
 2. See teachers in charge of their different activties with images of said teacher.
 3. see details of each transactions.
+
+
+Number of total students -  240
+    40 for JSS1 and the rest
+
+Number of subject - 5 subjects
+
+Number of extra curriculum activties - 3
+
+Number of houses - 3
+
+differentiate males and female in football and extracurriculum activiities.

@@ -29,4 +29,14 @@ class TeachersController extends Controller
     {
         return view('teacher/showStudents');
     }
+
+    public function listHouse()
+    {
+        return view('teacher/house');
+    }
+
+    public function curriculumStudent()
+    {
+        return view('teacher/curriculum');
+    }
 }

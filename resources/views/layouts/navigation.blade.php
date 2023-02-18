@@ -129,9 +129,14 @@
                             {{ __('Teachers') }}
                         </x-nav-link>
                     @endcan
-                    @role('teacher')
-                        <x-nav-link :href="route('show.students')">
-                            {{ __('Student') }}
+                    @role('house leader')
+                        <x-nav-link :href="route('list.house')">
+                            {{ __('House Member') }}
+                        </x-nav-link>
+                    @endrole
+                    @role('extra curriculum')
+                        <x-nav-link :href="route('curriculum.student')">
+                            {{ __('Extra Student') }}
                         </x-nav-link>
                     @endrole
                 </div>
