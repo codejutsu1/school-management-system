@@ -3,10 +3,13 @@
 namespace Database\Seeders;
 
 use Carbon\Carbon;
+use App\Models\House;
 use App\Models\Parents;
 use App\Models\Student;
 use App\Models\Teacher;
+use App\Models\Curriculum;
 use App\Models\Department;
+use App\Models\SubjectClass;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -19,35 +22,44 @@ class MemberSeeder extends Seeder
      */
     public function run()
     {
-        $classes = ['jss1', 'jss2', 'jss3', 'sss1', 'sss2', 'sss3'];
+        $classes = [
+            'jss1a', 
+            'jss1b', 
+            'jss1c', 
+            'jss1d',
+            'jss2a', 
+            'jss2b', 
+            'jss2c', 
+            'jss2d', 
+            'jss3a', 
+            'jss3b', 
+            'jss3c', 
+            'jss3d',
+        ];
 
-        for($i=31; $i <= 80; $i++)
-        {
-            shuffle($classes);
+        $curriculum = [
+            'Football',
+            'Chess',
+            'BasketBall'
+        ];
 
-            Student::create([
-                'user_id' => $i,
-                'class' => $classes[0]
-            ]);
-        }
-
-        for ($i=81; $i <= 110; $i++) { 
-            Parents::create([
-                'user_id' => $i,
-                'student_id' => rand(1, 50),
-            ]);
-        }
+        $house = [
+            'Peace',
+            'National',
+            'Liberty'
+        ];
 
         $department = [
             'English',
             'Mathematics',
             'Chemistry',
             'Physics',
-            'Geography',
-            'Further Mathematics',
-            'Civic Education',
             'Biology',
-            'Literation'
+        ];
+
+        $gender = [
+            'Male',
+            'Female'
         ];
 
         foreach($department as $dept)
@@ -58,15 +70,64 @@ class MemberSeeder extends Seeder
             ]);
         }
 
-        $departments = Department::pluck('name')->toArray();
+        foreach($curriculum as $curr)
+        {
+            Curriculum::create([
+                'name' => $curr,
+            ]);
+        }
+
+        foreach($house as $hous)
+        {
+            House::create([
+                'name' => $hous,
+            ]);
+        }
+
+        foreach($classes as $sub_class)
+        {
+            SubjectClass::create([
+                'name'=> $sub_class,
+            ]);
+        }
+
+        for($i=31; $i <= 80; $i++)
+        {
+            shuffle($classes);
+            shuffle($curriculum);
+            shuffle($house);
+            shuffle($gender);
+
+            Student::create([
+                'user_id' => $i,
+                'gender' => $gender[0],
+                'extraCurriculumActivities' => $curriculum[0],
+                'house' => $house[0],
+                'class' => $classes[0],
+                'classJoined' => $classes[1]
+            ]);
+        }
+
+        for ($i=81; $i <= 110; $i++) { 
+            Parents::create([
+                'user_id' => $i,
+                'student_id' => rand(1, 50),
+            ]);
+        }
 
         for($i=11; $i <= 30; $i++)
         {
-            shuffle($departments);
+            shuffle($department);
+            shuffle($house);
+            shuffle($curriculum);
+            shuffle($gender);
 
             Teacher::create([
                 'user_id' => $i,
-                'department' => $departments[0],
+                'gender' => $gender[0],
+                'extraCurriculumActivities' => $curriculum[0],
+                'house' => $house[0],
+                'department' => $department[0],
             ]);
         }
     }

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->date('dob')->nullable();
             $table->string('state')->nullable();
             $table->string('lga')->nullable();
+            $table->string('gender');
             $table->string('religion')->nullable();
             $table->string('documents')->nullable();
             $table->string('profilePics')->nullable();

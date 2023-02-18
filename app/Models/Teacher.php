@@ -16,6 +16,7 @@ class Teacher extends Model
         'dob',
         'state',
         'lga',
+        'gender',
         'religion',
         'documents',
         'profilePics',

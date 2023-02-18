@@ -30,12 +30,32 @@ class UserSeeder extends Seeder
         $student = Role::create(['name' => 'student']);
         $parent = Role::create(['name' => 'parent']);
 
-        Permission::create(['name' => 'view school']);
-        Permission::create(['name' => 'view principals']);
-        Permission::create(['name' => 'departments']);
-        Permission::create(['name' => 'student information']);
-        Permission::create(['name' => 'teacher information']);
+        $roles = ['form teacher', 'hod', 'house leader', 'extra curriculum'];
+
+        foreach($roles as $role)
+        {
+            Role::create(['name' => $role]);
+        }
+
+        $permissions = [
+            'view school',
+            'view principals',
+            'departments',
+            'student information',
+            'teacher information',
+            'list teachers',
+            'jss1a',
+            'jss1b',
+            'jss1c',
+            'jss1d'
+        ];
         
+        foreach($permissions as $permission)
+        {
+            Permission::create(['name' => $permission]);
+        }
+
+
         $super_admin->givePermissionTo([
             'view school',
             'view principals',
@@ -123,7 +143,7 @@ class UserSeeder extends Seeder
             $user->assignRole($teachers);
         }
 
-        for ($i=0; $i < 50; $i++) {
+        for ($i=0; $i < 60; $i++) {
             $name = $faker->name ;
             $user = User::create([
                 'name' => $name,
