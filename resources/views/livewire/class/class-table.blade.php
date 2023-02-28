@@ -1,6 +1,6 @@
 <div>
     <div class="flex justify-between mb-3">
-        <p><b>{{ strtoupper($name->name) }}</b> for <b>2020/2021</b> Session.</p>
+        <p><b>{{ strtoupper($form_class) }}</b> for <b>2020/2021</b> Session.</p>
         <button
             wire:click="addAllStudents({{ $students }})"
             class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
@@ -27,6 +27,9 @@
                         Email
                     </th>
                     <th scope="col" class="py-3 px-6">
+                        Gender
+                    </th>
+                    <th scope="col" class="py-3 px-6">
                         House
                     </th>
                     <th scope="col" class="py-3 px-6">
@@ -43,6 +46,9 @@
                     </th>
                     <td class="py-4 px-6">
                         {{ $student->email }}
+                    </td>
+                    <td class="py-4 px-6">
+                        {{ $student->gender }}
                     </td>
                     <td class="py-4 px-6">
                         {{ $student->house ?? 'NULL' }}
@@ -68,13 +74,6 @@
                                 Promote
                             </button>
                             @endif
-                            <button
-                                wire:click="addSingleStudent({{ $student->id }})"
-                                class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
-                                aria-label="Edit"
-                            >
-                                Add Student
-                            </button>
                         </div>
                     </td>
                 </tr>

@@ -4,10 +4,12 @@ namespace App\Http\Livewire\Class;
 
 use App\Models\Jss1;
 use App\Models\User;
+use App\Models\Biology;
 use App\Models\Student;
 use Livewire\Component;
 use App\Models\Geography;
 use App\Models\Department;
+use App\Models\SubjectClass;
 
 class ClassTable extends Component
 {
@@ -18,17 +20,22 @@ class ClassTable extends Component
     public $remain;
     public $number;
     public $subjects =  [];
+    public $form_class;
 
     public function mount()
     {
-        $this->classes = ['jss1a', 'jss1b', 'jss1c', 'jss1d'];
+        $this->classes = SubjectClass::pluck('name')->toArray();
 
-        $this->name = Auth()->user()->getDirectPermissions()->last();
+        $this->name = Auth()->user()->getDirectPermissions()->pluck('name')->toArray();
+
+        $this->form_class = array_intersect($this->classes, $this->name);
+
+        $this->form_class = reset($this->form_class);
 
         if(Auth()->user()->hasAnyPermission($this->classes)){
             $this->students = User::join('students', 'users.id', '=', 'students.user_id')
-                                        ->select(['users.id','users.name', 'users.email', 'students.house', 'students.extraCurriculumActivities','students.class'])
-                                        ->where('students.class', '=', $this->name->name)
+                                        ->select(['users.id','users.name', 'users.email', 'students.house', 'students.extraCurriculumActivities','students.class', 'students.gender'])
+                                        ->where('students.class', '=', $this->form_class)
                                         ->orderBy('name')
                                         ->get();
         }
@@ -48,14 +55,9 @@ class ClassTable extends Component
     {
         Jss1::firstOrCreate([
             'user_id' => $id,
+            'classes' => $this->form_class,
             'session' => '2020/2021', //Please create a table(column) for the session
         ]);
-
-        // for ($i=0; $i < 5; $i++) { 
-        //     "App\Models\\".$this->subject[0]::create({
-        //         'user_id' => $id
-        //     });   
-        // }
 
         session()->flash('message', 'Student successfully added to your class');
 
@@ -64,17 +66,20 @@ class ClassTable extends Component
 
     public function addAllStudents($students)
     {
+
         foreach($students as $student)
         {
             Jss1::firstOrCreate([
                 'user_id' => $student['id'],
+                'classes' => $this->form_class,
                 'session' => '2020/2021'
             ]);
 
-            Geography::create([
+            Biology::Create([
                 'user_id' => $student['id'],
-                'class' => $this->name->name,
+                'class' => $this->form_class,
                 'session' => '2020/2021', 
+                'teacher_name' => auth()->user()->name(),
             ]);
         }
 

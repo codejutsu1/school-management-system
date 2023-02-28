@@ -11,5 +11,5 @@ class Jss1 extends Model
     use HasFactory;
     use BelongsToUser;
 
-    protected $fillable = ['user_id','session'];
+    protected $fillable = ['user_id','session', 'classes'];
 }

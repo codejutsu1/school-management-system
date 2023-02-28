@@ -36,7 +36,7 @@
                         {{ $student->user->name }}    
                     </td>
                     <td class="py-4 px-6">
-                        NULL
+                        {{ $student->gender }}
                     </td>
                     <td class="py-4 px-6">
                         {{ $student->class }}    

@@ -136,7 +136,12 @@
                     @endrole
                     @role('extra curriculum')
                         <x-nav-link :href="route('curriculum.student')">
-                            {{ __('Extra Student') }}
+                            {{ __('EC Student') }}
+                        </x-nav-link>
+                    @endrole
+                    @role('teacher')
+                        <x-nav-link :href="route('show.students')">
+                            {{ __('Students') }}
                         </x-nav-link>
                     @endrole
                 </div>

@@ -2,8 +2,9 @@
     <form class="flex justify-center items-center gap-6" wire:submit.prevent="submit">
         <select wire:model.lazy="classes" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             <option value="" selected>~ Class ~</option>
-            <option value="jss1a">JSS1A</option>
-            <option value="JSS1B">JSS1B</option>
+            @foreach($teacher_classes as $class)
+                <option value="{{ $class }}">{{ $class }}</option>
+            @endforeach
         </select>
 
         <select wire:model.lazy="session" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">

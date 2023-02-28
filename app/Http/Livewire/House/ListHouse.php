@@ -18,7 +18,7 @@ class ListHouse extends Component
 
         $this->students = Student::with('user')
                                 ->where('house', $this->house)
-                                ->select('user_id','class','prefect')
+                                ->select('user_id','class','prefect', 'gender')
                                 ->orderBy('class')
                                 ->get();
     }

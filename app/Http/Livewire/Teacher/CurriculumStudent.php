@@ -17,7 +17,7 @@ class CurriculumStudent extends Component
 
         $this->students = Student::with('user')
                                 ->where('extraCurriculumActivities', $this->curriculum)
-                                ->select('user_id','class','extraActivitiesPrefect')
+                                ->select('user_id','class','extraActivitiesPrefect', 'gender')
                                 ->orderBy('class')
                                 ->get();
     }
