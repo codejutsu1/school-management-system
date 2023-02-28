@@ -4,10 +4,8 @@ namespace App\Http\Livewire\Class;
 
 use App\Models\Jss1;
 use App\Models\User;
-use App\Models\Biology;
 use App\Models\Student;
 use Livewire\Component;
-use App\Models\Geography;
 use App\Models\Department;
 use App\Models\SubjectClass;
 
@@ -21,6 +19,7 @@ class ClassTable extends Component
     public $number;
     public $subjects =  [];
     public $form_class;
+    public $subject_model;
 
     public function mount()
     {
@@ -74,13 +73,21 @@ class ClassTable extends Component
                 'classes' => $this->form_class,
                 'session' => '2020/2021'
             ]);
+        }
 
-            Biology::Create([
-                'user_id' => $student['id'],
-                'class' => $this->form_class,
-                'session' => '2020/2021', 
-                'teacher_name' => auth()->user()->name(),
-            ]);
+        foreach($students as $student)
+        {
+            foreach($this->subjects as $subject)
+            {
+                $this->subject_model = "\\App\\Models\\".$subject;
+
+                $this->subject_model::firstOrCreate([
+                    'user_id' => $student['id'],
+                    'class' => $this->form_class,
+                    'session' => '2020/2021',
+                    'teachers_name' => auth()->user()->name,
+                ]);
+            }
         }
 
         session()->flash('message', 'All students successfully added to your class');

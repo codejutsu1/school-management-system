@@ -12,7 +12,7 @@ class ShowStudents extends Component
 {
     public $classes;
     public $session;
-    public $students;
+    public $students = [];
     public $className;
     public $total;
     public $teacher_classes;
@@ -37,9 +37,7 @@ class ShowStudents extends Component
                                     ->with('user', function($query){
                                         $query->select(['id','name', 'slug']);
                                     })
-                                    ->get();     
-
-                                    dd($this->students); 
+                                    ->get();    
         }
         return view('livewire.teacher.show-students');
     }

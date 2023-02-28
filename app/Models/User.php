@@ -78,8 +78,27 @@ class User extends Authenticatable
         return $this->hasOne(Jss1::class);
     }
 
-    public function geography()
+    public function biology()
     {
-        return $this->hasOne(Geography::class);
+        return $this->hasOne(Biology::class);
+    }
+    public function english()
+    {
+        return $this->hasOne(English::class);
+    }
+
+    public function mathematics()
+    {
+        return $this->hasOne(Mathematics::class);
+    }
+
+    public function chemistry()
+    {
+        return $this->hasOne(Chemistry::class);
+    }
+
+    public function physics()
+    {
+        return $this->hasOne(Physics::class);
     }
 }

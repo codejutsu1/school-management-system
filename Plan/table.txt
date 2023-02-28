@@ -112,7 +112,7 @@ list_of_teachers_departmemt
     - session
     - department_id
 
-result
+result(done)
     - user_id
     - session 
     - class

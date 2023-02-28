@@ -20,9 +20,9 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('class');
-            $table->string('first_ca');
-            $table->string('second_ca');
-            $table->string('exam');
+            $table->string('first_ca')->nullable();
+            $table->string('second_ca')->nullable();
+            $table->string('exam')->nullable();
             $table->string('session');
             $table->string('teachers_name');
             $table->timestamps();
