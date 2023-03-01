@@ -42,7 +42,7 @@
                 @foreach($students as $student)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                     <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                    <a href="#">{{ $student->name }}</a>
+                        <a href="{{ route('show.result', $student->id) }}">{{ $student->name }}</a>
                     </th>
                     <td class="py-4 px-6">
                         {{ $student->email }}
@@ -68,6 +68,7 @@
                             </button>
                             @else
                             <button
+                                wire:click="promote()"
                                 class="flex items-center justify-between px-2 py-2 text-sm font-semibold leading-5 text-purple-600 rounded-lg dark:text-green-200 dark:bg-green-700 focus:outline-none focus:shadow-outline-gray"
                                 aria-label="Edit"
                             >

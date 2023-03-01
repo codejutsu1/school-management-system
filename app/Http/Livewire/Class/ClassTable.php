@@ -8,6 +8,7 @@ use App\Models\Student;
 use Livewire\Component;
 use App\Models\Department;
 use App\Models\SubjectClass;
+use App\Machine\Result;
 
 class ClassTable extends Component
 {
@@ -20,6 +21,7 @@ class ClassTable extends Component
     public $subjects =  [];
     public $form_class;
     public $subject_model;
+    public $hello;
 
     public function mount()
     {
@@ -93,6 +95,13 @@ class ClassTable extends Component
         session()->flash('message', 'All students successfully added to your class');
 
         return redirect()->route('jss1a');
+    }
+
+    public function promote()
+    {
+        $this->hello = new Result();
+
+        $this->hello->display();
     }
 
     public function render()

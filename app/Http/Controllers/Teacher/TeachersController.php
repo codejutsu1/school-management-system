@@ -39,4 +39,11 @@ class TeachersController extends Controller
     {
         return view('teacher/curriculum');
     }
+
+    public function showResult($id)
+    {
+        $user = User::where('id', $id)->select('id', 'name')->first();
+
+        return view('teacher/result/show-result', compact('user'));
+    }
 }

@@ -71,6 +71,7 @@ Route::group(['middleware' => ['auth', 'role:teacher'], 'prefix' => 'dashboard']
         Route::get('teachers/students/show', 'showStudents')->name('show.students');
         Route::get('house-members', 'listHouse')->name('list.house')->middleware('role:house leader');
         Route::get('extra-curriculum-members', 'curriculumStudent')->name('curriculum.student')->middleware('role:extra curriculum');
+        Route::get('show-result/{id}', 'showResult')->name('show.result')->middleware('role:form teacher');
     });
     
     Route::controller(ClassController::class)->group(function() {
