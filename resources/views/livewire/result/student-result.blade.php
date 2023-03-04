@@ -65,19 +65,19 @@
                         </a>
                     </th>
                     <td class="py-4 px-6">
-                        {{ $student->first_ca }}
+                        {{ $student->first_ca ?? 0 }}
                     </td>
                     <td class="py-4 px-6">
-                        {{ $student->second_ca }}
+                        {{ $student->second_ca ?? 0 }}
                     </td>
                     <td class="py-4 px-6">
-                        {{ $student->exam }}
+                        {{ $student->exam ?? 0 }}
                     </td>
                     <td class="py-4 px-6 text-gray-300 font-semibold">
-                        {{ $student->first_ca + $student->second_ca + $student->exam }}   
+                        {{ $student->total ?? 0 }}   
                     </td>
                     <td class="py-4 px-6">
-                        {{ grade($student->first_ca + $student->second_ca + $student->exam)  }}
+                        {{ grade($student->total)  }}
                     </td>
                     <td class="py-4 px-6">
                         2nd

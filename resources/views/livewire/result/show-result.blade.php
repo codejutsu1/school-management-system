@@ -34,19 +34,19 @@
                             {{ $result['subject'] }}
                         </td>
                         <td class="py-4 px-6">
-                            {{ $result['first_ca'] ?? 'NULL' }}
+                            {{ $result['first_ca'] ?? 0 }}
                         </td>
                         <td class="py-4 px-6">
-                            {{ $result['second_ca'] ?? 'NULL' }}
+                            {{ $result['second_ca'] ?? 0 }}
                         </td>
                         <td class="py-4 px-6">
-                            {{ $result['exam'] ?? 'NULL' }}
+                            {{ $result['exam'] ?? 0 }}
                         </td>
                         <td class="py-4 px-6">
-                            {{ $result['first_ca'] + $result['second_ca'] + $result['exam'] }}
+                            {{ $result['total'] ?? 0 }}
                         </td>
                         <td class="py-4 px-6">
-                            {{ grade($result['first_ca'] + $result['second_ca'] + $result['exam']) }}
+                            {{ grade($result['total']) }}
                         </td>
                     </tr>
                 @endforeach

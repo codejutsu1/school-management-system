@@ -16,7 +16,7 @@ class Result
         {
             $subject_model = "\\App\\Models\\".$subject;
 
-            $scores_array[] = $subject_model::where('user_id', $id)->select('first_ca', 'second_ca', 'exam')->first()->toArray();
+            $scores_array[] = $subject_model::where('user_id', $id)->select('first_ca', 'second_ca', 'exam', 'total')->first()->toArray();
 
             $this->results[$key]['subject'] = $subject;
         }
@@ -26,6 +26,7 @@ class Result
             $this->results[$key]['first_ca'] = $scores['first_ca'];
             $this->results[$key]['second_ca'] = $scores['second_ca'];
             $this->results[$key]['exam'] = $scores['exam'];
+            $this->results[$key]['total'] = $scores['total'];
         }
 
         return $this->results;
