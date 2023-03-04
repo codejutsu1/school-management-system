@@ -125,23 +125,26 @@
                         </x-nav-link>
                     @endrole
                     @can('list teachers')
-                        <x-nav-link :href="route('list.teachers')">
+                        <x-nav-link :href="route('list.teachers')" :active="request()->routeIs('list.teachers')">
                             {{ __('Teachers') }}
                         </x-nav-link>
                     @endcan
                     @role('house leader')
-                        <x-nav-link :href="route('list.house')">
+                        <x-nav-link :href="route('list.house')" :active="request()->routeIs('list.house')">
                             {{ __('House Member') }}
                         </x-nav-link>
                     @endrole
                     @role('extra curriculum')
-                        <x-nav-link :href="route('curriculum.student')">
+                        <x-nav-link :href="route('curriculum.student')" :active="request()->routeIs('curriculum.student')">
                             {{ __('EC Student') }}
                         </x-nav-link>
                     @endrole
                     @role('teacher')
-                        <x-nav-link :href="route('show.students')">
+                        <x-nav-link :href="route('show.students')" :active="request()->routeIs('show.students')">
                             {{ __('Students') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('show.students.result')" :active="request()->routeIs('show.students.result')">
+                            {{ __('Results') }}
                         </x-nav-link>
                     @endrole
                 </div>

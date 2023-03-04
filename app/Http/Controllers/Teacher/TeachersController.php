@@ -46,4 +46,9 @@ class TeachersController extends Controller
 
         return view('teacher/result/show-result', compact('user'));
     }
+
+    public function showStudentsResult()
+    {
+        return view('teacher/result/show-students-result');
+    }
 }

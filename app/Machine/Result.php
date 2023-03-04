@@ -31,4 +31,18 @@ class Result
         return $this->results;
         
     }    
+
+
+    public function studentsResult($session, $subject, $class)
+    {   
+        $subject_model = "\\App\\Models\\".$subject;
+
+        $final_result = $subject_model::where(['class'=> $class, 'session' => $session])
+                                        ->with('user', function($query){
+                                            $query->select('id', 'name');
+                                        })
+                                        ->get();
+
+        return $final_result;
+    }
 }
