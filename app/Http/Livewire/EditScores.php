@@ -35,11 +35,11 @@ class EditScores extends ModalComponent
                                                     ->where('session', $this->session)
                                                     ->first();
 
-        $this->first_ca = $this->student->first_ca ?? '';
+        $this->first_ca = number_format($this->student->first_ca);
 
-        $this->second_ca = $this->student->second_ca ?? '';
+        $this->second_ca = number_format($this->student->second_ca);
 
-        $this->exam = $this->student->exam ?? '';
+        $this->exam = number_format($this->student->exam);
     }
 
     public function updated($propertyName)
@@ -50,14 +50,19 @@ class EditScores extends ModalComponent
     public function submit()
     {
         $this->validate();
+
+        $total = $this->first_ca + $this->second_ca + $this->exam;
         
         $this->className::where('user_id', $this->user->id)->update([
             'first_ca' => $this->first_ca,
             'second_ca' => $this->second_ca,
-            'exam' => $this->exam
+            'exam' => $this->exam,
+            'total' => $total,
         ]);
 
         session()->flash('message', 'Student scores has been updated successfully.');
+
+        return redirect()->route('show.students');
     }
     
     public function render() 

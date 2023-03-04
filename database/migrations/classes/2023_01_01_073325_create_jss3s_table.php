@@ -20,6 +20,8 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->string('session');
+            $table->string('total')->nullable();
+            $table->string('average')->nullable();
             $table->timestamps();
         });
     }

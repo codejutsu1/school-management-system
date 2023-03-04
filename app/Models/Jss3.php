@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Jss3 extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['user_id','session', 'classes', 'total', 'average'];
 }

@@ -17,6 +17,7 @@ class English extends Model
         'first_ca',
         'second_ca',
         'exam',
+        'total',
         'session',
         'teachers_name'
     ];

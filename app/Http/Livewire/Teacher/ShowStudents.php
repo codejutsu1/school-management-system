@@ -16,6 +16,7 @@ class ShowStudents extends Component
     public $className;
     public $total;
     public $teacher_classes;
+    public $average;
 
     public function mount()
     {
@@ -37,7 +38,13 @@ class ShowStudents extends Component
                                     ->with('user', function($query){
                                         $query->select(['id','name', 'slug']);
                                     })
-                                    ->get();    
+                                    ->get();  
+                                    
+            $this->average  = $this->className::where('class', $this->classes)
+                                    ->where('session', $this->session)
+                                    ->avg('total');
+
+            $this->average = round($this->average, 2);
         }
         return view('livewire.teacher.show-students');
     }

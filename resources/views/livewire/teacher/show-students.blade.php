@@ -17,7 +17,10 @@
     <div class="overflow-x-auto relative mt-10">
         @if($classes and $session)
         <div>
-            <p class="mb-5 font-semibold text-xl text-center">{{ $classes }} {{ $subject }} Students for {{ $session }} session</p>
+            <p class="mb-2 font-semibold text-xl text-center">{{ $classes }} {{ $subject }} Students for {{ $session }} session</p>
+        </div>
+        <div>
+            <p class="mb-5 font-semibold text-xl flex justify-end">Average of your class is:<span class="font-bold ml-3">{{ $average }}</span></p>
         </div>
         @endif
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -65,19 +68,19 @@
                         </a>
                     </th>
                     <td class="py-4 px-6">
-                        {{ $student->first_ca }}
+                        {{ $student->first_ca ?? 0 }}
                     </td>
                     <td class="py-4 px-6">
-                        {{ $student->second_ca }}
+                        {{ $student->second_ca ?? 0 }}
                     </td>
                     <td class="py-4 px-6">
-                        {{ $student->exam }}
+                        {{ $student->exam ?? 0 }}
                     </td>
                     <td class="py-4 px-6 text-gray-300 font-semibold">
-                        {{ $student->first_ca + $student->second_ca + $student->exam }}   
+                        {{ $student->total ?? 0 }}   
                     </td>
                     <td class="py-4 px-6">
-                        {{ grade($student->first_ca + $student->second_ca + $student->exam)  }}
+                        {{ grade($student->total)  }}
                     </td>
                     <td class="py-4 px-6">
                         2nd
