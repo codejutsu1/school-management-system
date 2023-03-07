@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('second_ca')->nullable();
             $table->string('exam')->nullable();
             $table->string('total')->nullable();
+            $table->string('position')->nullable();
             $table->string('session');
             $table->string('teachers_name');
             $table->timestamps();

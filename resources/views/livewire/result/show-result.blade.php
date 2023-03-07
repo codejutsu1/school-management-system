@@ -25,6 +25,9 @@
                     <th class="px-4 py-3">
                         Grade
                     </th>
+                    <th class="px-4 py-3">
+                        Position
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -47,6 +50,9 @@
                         </td>
                         <td class="py-4 px-6">
                             {{ grade($result['total']) }}
+                        </td>
+                        <td class="py-4 px-6">
+                            {{ $result['position'] ?? 0 }}
                         </td>
                     </tr>
                 @endforeach

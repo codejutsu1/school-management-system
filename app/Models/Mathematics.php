@@ -20,6 +20,7 @@ class Mathematics extends Model
         'second_ca',
         'exam',
         'total',
+        'positon',
         'session',
         'teachers_name'
     ];

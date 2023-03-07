@@ -73,3 +73,18 @@ function grade($num)
 
     return $grade;
 }
+
+function position($score, $total_scores = [])
+{
+    rsort($total_scores);
+
+    $num = array_search($score, $total_scores);
+
+    $num += 1;
+
+    $format = new NumberFormatter('en_US', NumberFormatter::ORDINAL);
+
+    $pos = $format->format($num);
+
+    return $pos;
+}

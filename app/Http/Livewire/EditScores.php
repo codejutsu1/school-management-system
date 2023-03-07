@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
+use App\Machine\Result;
 use App\Models\Geography;
 use LivewireUI\Modal\ModalComponent;
 
@@ -59,6 +60,8 @@ class EditScores extends ModalComponent
             'exam' => $this->exam,
             'total' => $total,
         ]);
+
+        (new Result)->studentPosition($this->session, $this->classes, $this->className);
 
         session()->flash('message', 'Student scores has been updated successfully.');
 

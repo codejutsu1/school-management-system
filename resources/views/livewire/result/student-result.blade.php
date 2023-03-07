@@ -80,7 +80,7 @@
                         {{ grade($student->total)  }}
                     </td>
                     <td class="py-4 px-6">
-                        2nd
+                        {{ $student->position ?? 0 }}
                     </td>
                     <td class="py-4 px-6 text-gray-300 font-semibold">
                         {{ $student->teachers_name }}
