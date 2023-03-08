@@ -9,5 +9,5 @@ class Jss3 extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['user_id','session', 'classes', 'total', 'average', 'positon', 'class_positon',];
+    protected $fillable = ['user_id','session', 'classes', 'total', 'average', 'position', 'class_position',];
 }

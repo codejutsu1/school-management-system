@@ -63,4 +63,58 @@ class Result
             ]);
         }
     }
+
+
+    public function uploadResult($session, $form_class)
+    {
+        $new_class = $form_class[0].$form_class[1].$form_class[2].$form_class[3];
+
+        $new_class = ucfirst($new_class);
+
+        $class_model = "\\App\\Models\\".$new_class;
+
+        $subjects = Department::pluck('name')->toArray();
+
+
+        $students_id = $class_model::where(['session' => $session, 'classes' => $form_class])->pluck('user_id')->toArray();
+
+        foreach($students_id as $student_id)
+        {
+            foreach($subjects as $subject)
+            {
+                $subject_model = "\\App\\Models\\".$subject;
+
+                $total = $subject_model::where(['user_id'=> $student_id, 'session' => $session, 'class'=> $form_class])->value('total');
+
+                $total_scores[] = $total;
+            }
+
+            $total_score = array_sum($total_scores);
+
+            $average = $total_score / count($subjects);
+
+            $class_model::where(['user_id'=>$student_id, 'session' => $session, 'classes' => $form_class])->update([
+                'total' => $total_score,
+                'average' => $average,
+            ]);
+
+            $total_scores = [];
+        }
+
+        //For the positon based on average
+
+        $form_scores = $class_model::where(['session' => $session, 'classes' => $form_class])->pluck('average')->toArray();
+
+        $class_scores = $class_model::where('session', $session)->pluck('average')->toArray(); 
+
+        foreach($students_id as $student_id)
+        {
+            $average = $class_model::where(['user_id'=>$student_id, 'session' => $session, 'classes' => $form_class])->value('average');
+
+            $class_model::where(['user_id'=>$student_id, 'session' => $session, 'classes' => $form_class])->update([
+                'position' => position($average, $form_scores),
+                'class_position' => position($average, $class_scores)
+            ]);
+        }
+    }
 }

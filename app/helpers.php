@@ -88,3 +88,18 @@ function position($score, $total_scores = [])
 
     return $pos;
 }
+
+function superscript($word)
+{
+    if($word){
+        $old_word = $word[1].$word[2];
+
+        $old_word = "<sup>".$old_word."</sup>";
+
+        $new_word = $word[0].''.$old_word;
+
+        echo $new_word;
+    }else {
+        echo '0';
+    }
+}

@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('session');
             $table->string('total')->nullable();
             $table->string('average')->nullable();
-            $table->string('positon')->nullable();
+            $table->string('position')->nullable();
             $table->string('class_position')->nullable();
             $table->timestamps();
         });

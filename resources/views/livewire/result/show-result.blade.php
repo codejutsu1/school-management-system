@@ -1,6 +1,12 @@
 <div>
     <div class="flex justify-between mb-3">
         <p>{{ $user->name }} Result Booklet for First Term</p>
+        <div class="flex flex-col mx-2">
+            <p>Class Position: {{ superscript($class_position) }} out of {{ $class_no }}</p>
+            <p>Overall Position: {{ superscript($overall_position) }} out of {{ $class_no }}</p>
+            <p>Class Average: {{ $class_average }} (92/500)</p>
+            <p>Overall Average: {{ $class_average }}</p>
+        </div>
     </div>
 
     <div class="overflow-x-auto relative">
@@ -52,7 +58,7 @@
                             {{ grade($result['total']) }}
                         </td>
                         <td class="py-4 px-6">
-                            {{ $result['position'] ?? 0 }}
+                            {{ superscript($result['position'])  }}
                         </td>
                     </tr>
                 @endforeach

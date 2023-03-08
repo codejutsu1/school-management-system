@@ -22,9 +22,12 @@ class ClassTable extends Component
     public $form_class;
     public $subject_model;
     public $hello;
+    public $session;
 
     public function mount()
     {
+        $this->session = '2020/2021';
+        
         $this->classes = SubjectClass::pluck('name')->toArray();
 
         $this->name = Auth()->user()->getDirectPermissions()->pluck('name')->toArray();
@@ -50,6 +53,8 @@ class ClassTable extends Component
         }
 
         $this->subjects = Department::pluck('name')->toArray();
+
+        (new Result)->uploadResult($this->session, $this->form_class);
     }
 
     public function addSingleStudent($id)
