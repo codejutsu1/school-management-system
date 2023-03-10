@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use App\Models\Student;
+use App\Models\SubjectClass;
 use LivewireUI\Modal\ModalComponent;
 
 class EditStudent extends ModalComponent
@@ -13,6 +14,7 @@ class EditStudent extends ModalComponent
     public $email;
     public $class;
     public $student_id;
+    public $classes;
 
     protected function rules()
     {
@@ -29,6 +31,8 @@ class EditStudent extends ModalComponent
         $this->fullName = $student->name;
         $this->email = $student->email;
         $this->student_id = $student->id;
+
+        $this->classes = SubjectClass::pluck('name');
 
         $class = Student::where('user_id', $student->id)->value('class');
 

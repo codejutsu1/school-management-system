@@ -6,11 +6,12 @@ Task 2:
 
 Task 3 (10th March 2023)
     - Delete Parents  //
-    - Able to create students and teachers and assign a new class
-    - See students based on their class and session
+    - Able to create students and teachers and assign a new class //
+    - See students based on their class and session //
     - See Teachers via their subjects 
     - Arrange the files in the livewire folder.
     - See results individually, by class or whole class.
 
 Task 4 (11th March 2023)
-    - Students area
+    - Students upload
+    - Teachers upload (info and files)

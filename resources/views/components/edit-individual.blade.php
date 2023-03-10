@@ -22,12 +22,9 @@
                             <label for="class" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Class</label>
                             <select wire:model.lazy="class" id="class" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                                 <option value="" selected="selected" disabled>~ Select Class ~</option>
-                                <option value="jss1">JSS 1</option>
-                                <option value="jss2">JSS 2</option>
-                                <option value="jss3">JSS 3</option>
-                                <option value="sss1">SSS 1</option>
-                                <option value="sss2">SSS 2</option>
-                                <option value="sss3">SSS 3</option>
+                                @foreach($classes as $class)
+                                    <option value="{{ $class }}">{{ strtoupper($class) }}</option>
+                                @endforeach
                             </select>
                             @error('class') <span class="text-red-600">{{ $message }}</span> @enderror
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use App\Models\Student;
+use App\Models\SubjectClass;
 use Illuminate\Support\Facades\Hash;
 use LivewireUI\Modal\ModalComponent;
 
@@ -14,6 +15,11 @@ class StudentRegister extends ModalComponent
     public $middleName = '';
     public $email ='';
     public $class = ''; 
+
+    public function mount()
+    {
+        $this->classes = SubjectClass::pluck('name');
+    }
 
     protected $rules = [
         'firstName' => 'required|string',

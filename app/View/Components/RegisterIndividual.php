@@ -10,16 +10,18 @@ class RegisterIndividual extends Component
     public $individual;
     public $value;
     public $departments;
+    public $classes;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($individual, $value = null, $departments = null)
+    public function __construct($individual, $value = null, $departments = null, $classes = null)
     {
         $this->individual = $individual;
         $this->value = $value;
         $this->departments = $departments;
+        $this->classes = $classes;
     }
 
     /**

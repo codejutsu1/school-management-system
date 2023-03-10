@@ -11,17 +11,19 @@ class EditIndividual extends Component
     public $value;
     public $name;
     public $departments;
+    public $classes;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($individual, $value=null, $name=null, $departments=null)
+    public function __construct($individual, $value=null, $name=null, $departments=null, $classes=null)
     {
         $this->individual = $individual;
         $this->value = $value;
         $this->name = $name;
         $this->departments = $departments;
+        $this->classes = $classes;
     }
 
     /**
