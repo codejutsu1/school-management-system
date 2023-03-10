@@ -33,11 +33,6 @@
                                     </x-drop-link>
                                 </li>
                                 <li>
-                                    <x-drop-link :href="route('parents.index')" :active="request()->routeIs('parents.index')">
-                                        {{ __('Parents') }}
-                                    </x-drop-link>
-                                </li>
-                                <li>
                                     <x-drop-link :href="route('teachers.index')" :active="request()->routeIs('teachers.index')">
                                         {{ __('Teachers') }}
                                     </x-drop-link>

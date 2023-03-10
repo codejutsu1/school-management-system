@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Carbon\Carbon;
 use App\Models\House;
-use App\Models\Parents;
 use App\Models\Student;
 use App\Models\Teacher;
 use App\Models\Curriculum;
@@ -105,13 +104,6 @@ class MemberSeeder extends Seeder
                 'house' => $house[0],
                 'class' => $classes[0],
                 'classJoined' => $classes[1]
-            ]);
-        }
-
-        for ($i=81; $i <= 110; $i++) { 
-            Parents::create([
-                'user_id' => $i,
-                'student_id' => rand(1, 50),
             ]);
         }
 
