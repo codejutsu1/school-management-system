@@ -9,6 +9,7 @@ use App\Http\Controllers\Student\StudentsController;
 use App\Http\Controllers\SuperAdmin\RolesController;
 use App\Http\Controllers\Teacher\TeachersController;
 use App\Http\Controllers\SuperAdmin\CreateController;
+use App\Http\Controllers\SuperAdmin\ResultController;
 use App\Http\Controllers\Principal\PrincipalController;
 use App\Http\Controllers\SuperAdmin\DepartmentController;
 use App\Http\Controllers\SuperAdmin\PermissionsController;
@@ -60,23 +61,32 @@ Route::group(['middleware' => ['auth', 'role:super admin'], 'prefix' => 'dashboa
 
     Route::get('roles', [RolesController::class, 'index'])->name('roles');
     Route::get('permissions', [PermissionsController::class, 'index'])->name('permissions');
+
+
+    Route::controller(ResultController::class)->group(function() {
+        Route::get('result/individually', 'resultIndividually')->name('result.individually');
+        Route::get('result/by-subject', 'resultBySubject')->name('result.by.subject');
+    });
 });
 
-Route::group(['middleware' => ['auth', 'role:teacher'], 'prefix' => 'dashboard'], function(){
-    Route::controller(TeachersController::class)->group(function() {
-        Route::get('teacher/teacher-information',  'viewTeacherInfo')->name('view.teacher.info')->middleware('teacher');
-        Route::get('teacher/list-teachers',  'listTeachers')->name('list.teachers');
-        Route::get('teacher/{teacher:slug}', 'showListTeachers')->name('show.list.teacher');
-        Route::get('teachers/students/show', 'showStudents')->name('show.students');
-        Route::get('house-members', 'listHouse')->name('list.house')->middleware('role:house leader');
-        Route::get('extra-curriculum-members', 'curriculumStudent')->name('curriculum.student')->middleware('role:extra curriculum');
-        Route::get('show-result/{id}', 'showResult')->name('show.result')->middleware('role:form teacher');
-        Route::get('show-students-result', 'showStudentsResult')->name('show.students.result')->middleware('role:form teacher');
+Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function(){
+    Route::group(['middleware' => 'role:teacher'], function() {
+        Route::controller(TeachersController::class)->group(function() {
+            Route::get('teacher/teacher-information',  'viewTeacherInfo')->name('view.teacher.info')->middleware('teacher');
+            Route::get('teacher/list-teachers',  'listTeachers')->name('list.teachers');
+            Route::get('teacher/{teacher:slug}', 'showListTeachers')->name('show.list.teacher');
+            Route::get('teachers/students/show', 'showStudents')->name('show.students');
+            Route::get('house-members', 'listHouse')->name('list.house')->middleware('role:house leader');
+            Route::get('extra-curriculum-members', 'curriculumStudent')->name('curriculum.student')->middleware('role:extra curriculum');
+            Route::get('show-students-result', 'showStudentsResult')->name('show.students.result')->middleware('role:form teacher');
+        });
+        
+        Route::controller(ClassController::class)->group(function() {
+            Route::get('jss1a', 'jss1a')->name('jss1a')->middleware('role:form teacher');
+        });
     });
-    
-    Route::controller(ClassController::class)->group(function() {
-        Route::get('jss1a', 'jss1a')->name('jss1a')->middleware('role:form teacher');
-    });
+
+    Route::get('show-result/{id}', [TeachersController::class, 'showResult'])->name('show.result')->middleware('role:form teacher|super admin');
 });
 
 Route::get('student/student-information', [StudentsController::class, 'viewStudentInfo'])->name('view.student.info')->middleware('student');
