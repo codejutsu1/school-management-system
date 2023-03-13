@@ -16,13 +16,15 @@ class TeacherFill extends Component
     public $dob;
     public $religion = '';
     public $curricula = '';
+    public $gender;
 
     protected $rules = [
         'state' => 'required',
         'lga' => 'required',
         'dob' => 'required',
         'religion' => 'required',
-        'curricula' => 'required'
+        'curricula' => 'required',
+        'gender' => 'required|string'
     ];
 
     public function updated($propertyName)
@@ -35,6 +37,7 @@ class TeacherFill extends Component
         $this->validate();
 
         Teacher::where('user_id', auth()->user()->id)->update([
+            'gender' => $this->gender,
             'state' => $this->state,
             'lga' => $this->lga,
             'dob' => $this->dob,

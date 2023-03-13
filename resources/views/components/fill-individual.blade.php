@@ -8,6 +8,15 @@
                     </h1>
                     <form class="space-y-4 md:space-y-6" wire:submit.prevent="submit">
                         <div>
+                            <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
+                            <select wire:model.lazy="gender" id="gender" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                <option value="" selected="selected" disabled>~ Gender ~</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select> 
+                            @error('gender') <span class="error">{{ $message }}</span> @enderror
+                        </div>
+                        <div>
                             <label for="dob" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Date of Birth</label>
                             <input wire:model.debounce.500ms="dob" type="date" id="dob" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="First Name" required autofocus>
                             @error('dob') <span class="error">{{ $message }}</span> @enderror
