@@ -34,6 +34,34 @@ class Result
         
     }    
 
+    public function displayStudentResult($class, $session, $id)
+    {
+        $subjects = Department::pluck('name')->toArray();
+
+        foreach($subjects as $key=>$subject)
+        {
+            $subject_model = "\\App\\Models\\".$subject;
+
+            $scores_array[] = $subject_model::where(['user_id' => $id, 'class' => $class, 'session' => $session ])
+                                            ->select(['first_ca', 'second_ca', 'exam', 'total', 'position'])
+                                            ->first()
+                                            ->toArray() ?? '';
+
+            $results[$key]['subject'] = $subject;
+        }
+
+        foreach($scores_array as $key=>$scores)
+        {
+            $results[$key]['first_ca'] = $scores['first_ca'];
+            $results[$key]['second_ca'] = $scores['second_ca'];
+            $results[$key]['exam'] = $scores['exam'];
+            $results[$key]['total'] = $scores['total'];
+            $results[$key]['position'] = $scores['position'];
+        }
+
+        return $results;
+    }
+
 
     public function studentsResult($session, $subject, $class)
     {   

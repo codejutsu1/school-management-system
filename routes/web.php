@@ -14,6 +14,7 @@ use App\Http\Controllers\SuperAdmin\SettingController;
 use App\Http\Controllers\Principal\PrincipalController;
 use App\Http\Controllers\SuperAdmin\DepartmentController;
 use App\Http\Controllers\SuperAdmin\PermissionsController;
+use App\Http\Controllers\Student\ResultController as StudentResult;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +91,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function(){
     });
 
     Route::get('show-result/{id}', [TeachersController::class, 'showResult'])->name('show.result')->middleware('role:form teacher|super admin');
+});
+
+
+Route::group(['middleware' => ['auth', 'role:student'], 'prefix' => 'dashboard'], function() {
+    Route::get('your-result', [StudentResult::class, 'showStudentResult'])->name('student.result');
 });
 
 Route::get('student/student-information', [StudentsController::class, 'viewStudentInfo'])->name('view.student.info')->middleware('student');

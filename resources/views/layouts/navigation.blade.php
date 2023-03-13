@@ -173,6 +173,17 @@
                             {{ __('Results') }}
                         </x-nav-link>
                     @endrole
+                    @role('student')
+                        <x-nav-link :href="route('student.result')" :active="request()->routeIs('student.result')">
+                            {{ __('Result') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('show.students.result')" :active="request()->routeIs('show.students.result')">
+                            {{ __('Payment') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('show.students.result')" :active="request()->routeIs('show.students.result')">
+                            {{ __('Profile') }}
+                        </x-nav-link>
+                    @endrole
                 </div>
             </div>
 
