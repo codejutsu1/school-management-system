@@ -137,6 +137,14 @@
                             </div>
                         </x-nav-link>
                     @endcan
+
+                    @role('super admin')
+                        <x-nav-link :href="route('super.admin.settings')" :active="request()->routeIs('super.admin.settings')">
+                            {{ __('Settings') }}
+                        </x-nav-link>
+                    @endrole
+
+
                     @role('form teacher')
                         <x-nav-link :href="route('jss1a')" :active="request()->routeIs('jss1a')">
                             {{ __('Form Class') }}

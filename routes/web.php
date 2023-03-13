@@ -10,6 +10,7 @@ use App\Http\Controllers\SuperAdmin\RolesController;
 use App\Http\Controllers\Teacher\TeachersController;
 use App\Http\Controllers\SuperAdmin\CreateController;
 use App\Http\Controllers\SuperAdmin\ResultController;
+use App\Http\Controllers\SuperAdmin\SettingController;
 use App\Http\Controllers\Principal\PrincipalController;
 use App\Http\Controllers\SuperAdmin\DepartmentController;
 use App\Http\Controllers\SuperAdmin\PermissionsController;
@@ -67,6 +68,8 @@ Route::group(['middleware' => ['auth', 'role:super admin'], 'prefix' => 'dashboa
         Route::get('result/individually', 'resultIndividually')->name('result.individually');
         Route::get('result/by-subject', 'resultBySubject')->name('result.by.subject');
     });
+
+    Route::get('settings', [SettingController::class, 'settings'])->name('super.admin.settings');
 });
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function(){

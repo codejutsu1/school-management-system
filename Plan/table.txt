@@ -63,6 +63,7 @@ Settings
   - site_email
   - site_phone
   - session
+  - school fees
 
 
 Js1/Js2/Js3 Ss1/ss2/ss3  (done)
