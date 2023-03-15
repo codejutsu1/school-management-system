@@ -96,6 +96,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function(){
 
 Route::group(['middleware' => ['auth', 'role:student'], 'prefix' => 'dashboard'], function() {
     Route::get('your-result', [StudentResult::class, 'showStudentResult'])->name('student.result');
+    Route::get('your-profile', [StudentsController::class, 'studentProfile'])->name('student.profile');
 });
 
 Route::get('student/student-information', [StudentsController::class, 'viewStudentInfo'])->name('view.student.info')->middleware('student');

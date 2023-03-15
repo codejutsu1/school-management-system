@@ -180,7 +180,7 @@
                         <x-nav-link :href="route('show.students.result')" :active="request()->routeIs('show.students.result')">
                             {{ __('Payment') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('show.students.result')" :active="request()->routeIs('show.students.result')">
+                        <x-nav-link :href="route('student.profile')" :active="request()->routeIs('student.profile')">
                             {{ __('Profile') }}
                         </x-nav-link>
                     @endrole
