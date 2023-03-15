@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Parent\ParentController;
 use App\Http\Controllers\Teacher\ClassController;
+use App\Http\Controllers\Student\PaymentController;
 use App\Http\Controllers\Student\StudentController;
 use App\Http\Controllers\Teacher\TeacherController;
 use App\Http\Controllers\Student\StudentsController;
@@ -97,6 +98,11 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'dashboard'], function(){
 Route::group(['middleware' => ['auth', 'role:student'], 'prefix' => 'dashboard'], function() {
     Route::get('your-result', [StudentResult::class, 'showStudentResult'])->name('student.result');
     Route::get('your-profile', [StudentsController::class, 'studentProfile'])->name('student.profile');
+
+    Route::controller(PaymentController::class)->group(function() {
+        Route::get('school-fees', 'schoolFees')->name('school.fees');
+        Route::get('other-fees', 'otherFees')->name('other.fees');
+    });
 });
 
 Route::get('student/student-information', [StudentsController::class, 'viewStudentInfo'])->name('view.student.info')->middleware('student');

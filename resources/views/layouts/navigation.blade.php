@@ -177,8 +177,28 @@
                         <x-nav-link :href="route('student.result')" :active="request()->routeIs('student.result')">
                             {{ __('Result') }}
                         </x-nav-link>
-                        <x-nav-link :href="route('show.students.result')" :active="request()->routeIs('show.students.result')">
-                            {{ __('Payment') }}
+                        <x-nav-link>
+                            <button id="paymentDropdown" data-dropdown-toggle="paymentDrop" class="text-gray-400 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center " type="button">
+                                Payment
+                                <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                        <!-- Dropdown menu -->
+                            <div id="paymentDrop" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700">
+                                <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="paymentDropdown">
+                                    <li>
+                                        <x-drop-link :href="route('school.fees')" :active="request()->routeIs('school.fees')">
+                                            {{ __('School Fees') }}
+                                        </x-drop-link>
+                                    </li>
+                                    <li>
+                                        <x-drop-link :href="route('other.fees')" :active="request()->routeIs('other.fees')">
+                                            {{ __('Other Fees') }}
+                                        </x-drop-link>
+                                    </li>
+                                </ul>
+                            </div>
                         </x-nav-link>
                         <x-nav-link :href="route('student.profile')" :active="request()->routeIs('student.profile')">
                             {{ __('Profile') }}

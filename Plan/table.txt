@@ -130,3 +130,6 @@ fee_transaction
     - amount
     - class
     - session
+    - jss1
+    - jss2
+    - jss3
