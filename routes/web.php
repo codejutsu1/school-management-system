@@ -102,6 +102,7 @@ Route::group(['middleware' => ['auth', 'role:student'], 'prefix' => 'dashboard']
     Route::controller(PaymentController::class)->group(function() {
         Route::get('school-fees', 'schoolFees')->name('school.fees');
         Route::get('other-fees', 'otherFees')->name('other.fees');
+        Route::get('/paystack/callback', 'callback')->name('callback');
     });
 });
 

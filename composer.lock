@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18638cb7215f800958cc3c559a8af062",
+    "content-hash": "1345e9be4abf81d135eda569d50d1daa",
     "packages": [
         {
             "name": "brick/math",
@@ -896,6 +896,71 @@
                 }
             ],
             "time": "2022-08-28T14:45:39+00:00"
+        },
+        {
+            "name": "iamolayemi/laravel-paystack",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iamolayemi/laravel-paystack.git",
+                "reference": "bb498bb43c7f137a08699cdce48ca049a799f98f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iamolayemi/laravel-paystack/zipball/bb498bb43c7f137a08699cdce48ca049a799f98f",
+                "reference": "bb498bb43c7f137a08699cdce48ca049a799f98f",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.3",
+                "illuminate/support": "^8.0|^9.0",
+                "php": "^8.0|^8.1"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0|^7.0",
+                "phpunit/phpunit": "^9.0|^10.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Iamolayemi\\Paystack\\PaystackServiceProvider"
+                    ],
+                    "aliases": {
+                        "Paystack": "Iamolayemi\\Paystack\\Facades\\Paystack"
+                    }
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/Helpers.php"
+                ],
+                "psr-4": {
+                    "Iamolayemi\\Paystack\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Olayemi Olatayo",
+                    "email": "olatayo.olayemi.peter@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "homepage": "https://github.com/iamolayemi/laravel-paystack",
+            "keywords": [
+                "laravel",
+                "paystack"
+            ],
+            "support": {
+                "issues": "https://github.com/iamolayemi/laravel-paystack/issues",
+                "source": "https://github.com/iamolayemi/laravel-paystack/tree/master"
+            },
+            "time": "2022-04-30T16:33:39+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8215,7 +8280,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "iamolayemi/laravel-paystack": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

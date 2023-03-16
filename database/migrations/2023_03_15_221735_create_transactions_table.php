@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('reference')->nullable();
             $table->string('amount')->nullable();
-            $table->boolean('status')->nullable();
+            $table->string('status')->nullable();
             $table->boolean('confirmed')->nullable();
             $table->string('class')->nullable();
             $table->string('session')->nullable();
