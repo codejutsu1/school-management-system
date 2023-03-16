@@ -15,7 +15,7 @@
                 </div>     
             @endif
                 <div class="p-6 bg-gray-800 text-gray-200">
-                    {{-- <livewire:student.student-result /> --}}
+                    <livewire:fees.other-fees /> 
                 </div>
             </div>
         </div>
