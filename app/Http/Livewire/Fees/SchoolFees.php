@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Setting;
 use App\Models\Student;
 use Livewire\Component;
+use App\Models\Transaction;
 use Iamolayemi\Paystack\Facades\Paystack;
 
 class SchoolFees extends Component
@@ -26,11 +27,20 @@ class SchoolFees extends Component
     }
 
     public function initialize()
-    {
+    { 
+        $title = strtoupper($this->student_class) . ' School Fees';
+
+        $value = Transaction::where(['user_id'=> auth()->user()->id, 'title' => $title])->value($this->student_class);
+
+        if($value)
+        {
+            session()->flash('message', 'You have paid for this class, contact the admin for ay further complaint');
+
+            return redirect()->route('school.fees');
+        }
+        
         // Generate a unique payment reference
         $reference = Paystack::generateReference();
-
-        $title = strtoupper($this->student_class) . ' School Fees';
 
         // prepare payment details from form request
         $paymentDetails = [
